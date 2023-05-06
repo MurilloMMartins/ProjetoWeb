@@ -8,12 +8,18 @@
         <link rel="stylesheet" type="text/css" href="../styles/header.css">
         <link rel="stylesheet" type="text/css" href="../styles/vinyl.css">
         <link rel="stylesheet" type="text/css" href="../styles/general.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
-            <nav id="header-left">
-                <a href="homepage.html"><img id="logo-img" src="img/logo.png" alt="Logo Vinil Mil"></a>
-            </nav>
+            <a href="homepage.html">
+            <div id="header-left">
+                <img id="logo-img" src="../images/misc/logo.png" alt="Logo Vinil Mil">
+                <span id="logo-span">Vinil Mil</span>
+            </div>
+            </a>
             <div id="header-center"></div>
             <div id="header-right">
                 <img id="profile-img" src="../images/misc/default-profile.png" alt="Profile picture">
@@ -22,12 +28,14 @@
             </div>
         </header>
         <div id="nav-search-container">
-            <div id="nav-search">
-                <input id="search-bar" type="text" placeholder="PESQUISE POR ARTISTA, FAIXA OU ÁLBUM">
-                <div id="search-button">
-                    <img id="search-bar-img" src="../images/misc/search-icon.png" alt="Search bar">
+            <form>
+                <div id="nav-search">
+                    <input id="search-bar" type="text" placeholder="PESQUISE POR ARTISTA, FAIXA OU ÁLBUM">
+                    <div id="search-button">
+                        <img id="search-bar-img" src="../images/misc/search-icon.png" alt="Search bar">
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
         <div id="main-content">
             <h1>Em destaque</h1>

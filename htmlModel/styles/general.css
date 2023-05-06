@@ -8,6 +8,10 @@
     background-color: var(--secondary-color);
 }
 
+* {
+    font-family: 'Playfair Display', serif;
+}
+
 html {
     height: 100%;
 }
@@ -28,6 +32,10 @@ footer {
     padding: 10px;
     background-color: var(--primary-color);
     color: white;
+}
+
+a {
+    text-decoration: none;
 }
 
 #main-content {
