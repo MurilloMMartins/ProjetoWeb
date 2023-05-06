@@ -1,0 +1,25 @@
+/* General style */
+
+:root {
+    --primary-color: #3C1518;
+    --secondary-color: #FEFAE0;
+
+    background-color: var(--secondary-color);
+}
+
+body {
+    margin: 0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#main-content {
+    padding: 10px;
+}
