@@ -13,6 +13,13 @@ header {
   height: 50px;
 }
 
+#search-bar-img {
+  height: 80%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
 #header-right {
   display: flex;
   align-items: center;
@@ -35,9 +42,8 @@ header {
   border-radius: 5px;
 }
 
-/* Estilo para a barra de navegação centralizada */
 #nav-search-container {
-  background-color: #EEE;
+  background-color: var(--search-bar-text-color);
   padding: 10px;
 }
 
@@ -47,8 +53,17 @@ header {
   align-items: center;
   background-color: white;
   border-radius: 5px;
-  max-width: 800px;
+  max-width: 90%;
   margin: 0 auto;
+}
+
+#search-button {
+  border-left: 2px solid var(--search-bar-text-color);
+  padding: 5px 5px 5px 25px;
+}
+
+#search-button:hover {
+  cursor: pointer;
 }
 
 #search-bar {
@@ -74,4 +89,3 @@ header {
   background-image: url('img/cancel-icon.png');
   cursor: pointer;
 }
-  
