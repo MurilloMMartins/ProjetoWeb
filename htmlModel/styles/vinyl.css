@@ -5,21 +5,31 @@
 }
 
 #highlighted-vinyls-ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
     list-style: none;
-    padding: 0;
+    padding: 5px 20px;
 }
 
 .vinyl-container {
-    width: calc(33.33% - 10px);
-    margin-bottom: 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
 }
 
 .vinyl-container img {
-    width: 100%;
+    width: 80%;
+}
+
+.vinyl-container img:hover {
+    width: 82%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    transition: width 0.5s, box-shadow 0.5s;
+    cursor: pointer;
 }
 
 .vinyl-name {
@@ -28,3 +38,4 @@
     font-size: 16px;
     font-weight: bold;
 }
+
