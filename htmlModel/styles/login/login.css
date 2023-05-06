@@ -1,0 +1,16 @@
+body {
+    background: url("../images/background.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.login-container{
+    position: absolute;
+    left: calc(50% - 200px);
+    top: calc(50% - 230px);
+
+    width: 400px;
+    height: 460px;
+    box-sizing: border-box;
+    background: rgba(254, 250, 224, 0.35);
+    border-radius: 14px;
+}
