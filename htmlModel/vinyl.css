@@ -1,0 +1,30 @@
+/* Vinyl disc style */
+
+.item-collection-container {
+    margin-top: 20px;
+}
+
+#highlighted-vinyls-ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+}
+
+.vinyl-container {
+    width: calc(33.33% - 10px);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.vinyl-container img {
+    width: 100%;
+}
+
+.vinyl-name {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
