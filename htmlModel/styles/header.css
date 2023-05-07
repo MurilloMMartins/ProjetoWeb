@@ -1,5 +1,3 @@
-/* Header style */
-
 header {
   display: flex;
   justify-content: space-between;
@@ -57,59 +55,4 @@ header {
   border-radius: 5px;
   font-size: medium;
 }
-
-#nav-search-container {
-  background-image: url("../images/misc/vinyl-banner.png");
-  background-color: var(--search-bar-text-color);
-  filter: grayscale(1);
-  padding: 10px;
-}
-
-#nav-search {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  border-radius: 5px;
-  max-width: 60%;
-  margin: 0 auto;
-  border: 2px solid black;
-}
-
-#nav-search input {
-  font-size: x-large;
-  text-transform:  uppercase;
-}
-
-#search-button {
-  border-left: 2px solid var(--search-bar-text-color);
-  padding: 5px 5px 5px 25px;
-}
-
-#search-button:hover {
-  cursor: pointer;
-}
-
-#search-bar {
-  width: 80%;
-  height: 40px;
-  padding: 5px;
-  border: none;
-  font-size: 16px;
-}
-
-#search-bar:focus {
-  outline: none;
-}
-
-#search-bar::placeholder {
-  color: #999;
-}
-
-#search-bar::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  height: 16px;
-  width: 16px;
-  background-image: url('img/cancel-icon.png');
-  cursor: pointer;
-}
+  
