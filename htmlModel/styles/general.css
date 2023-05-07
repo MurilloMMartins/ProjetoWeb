@@ -20,6 +20,7 @@ body {
     padding-bottom: 50px;
     position: relative;
     min-height: 100%;
+    overflow-x: hidden;
 }
 footer {
     position: absolute;
@@ -39,11 +40,10 @@ a {
 }
 
 #main-content {
-    padding: 10px 30px;
-    height: 100%;
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    min-height: calc(100vh - 200px);
+    box-sizing: border-box;
+    padding: 10px 30px;
 }
 
 #main-content h1{
