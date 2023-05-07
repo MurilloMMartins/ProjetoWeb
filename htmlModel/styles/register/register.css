@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+body {
+    background: no-repeat center center fixed;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url("../../images/login/background.png");
+    background-size: cover;
+}
+
+label{
+    margin: 0;
+}
+
+.register-container{
+    position: absolute;
+    width: 520px;
+    height: 598px;
+    left: calc(50% - 260px);
+    top: calc(50% - 299px);
+
+    box-sizing: border-box;
+    background: rgba(254, 250, 224, 0.35);
+    
+    border-radius: 18px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.register-container::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px; 
+    padding: 2px;
+    z-index: -1;
+    background:linear-gradient(135deg, white, rgba(255, 255, 255, 0), white, rgba(255, 255, 255, 0), white); 
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude; 
+}
+
+.register-form-container, .register-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.website-name{
+    margin-top: 57px;
+    margin-bottom: 0;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 78px;
+    color: white;
+}
+
+.text-input, .text-input-password{
+    background: transparent;
+    border: 0px;
+    padding: 0px;
+    margin: 0;
+    font-size: 18px;
+}
+
+.text-input{
+    width: 100%;
+}
+
+.text-input-password{
+    width: 90%;
+}
+
+.text-input::placeholder, .text-input-password::placeholder{
+    color: white;
+    font-family: 'Playfair Display', serif;
+    opacity: 0.8;
+}
+
+.text-input:focus, .text-input-password:focus{
+    outline: none;
+    color: white;
+    font-family: 'Playfair Display', serif;
+}
+
+.text-input:not(:focus), .text-input-password:not(:focus){
+    outline: none;
+    color: white;
+    font-family: 'Playfair Display', serif;
+}
+
+.user-field, .password-field{
+    border-bottom: solid 3px white;
+    border-radius: 4px;
+    width: 78%;
+    padding: 5px 9px;
+    margin-bottom: 32px;
+}
+
+.show-password {
+    display: none;
+}
+
+.show-password-image{
+    width: 18px;
+    filter: invert(100%);
+}
+
+.show-password-image:hover{
+    cursor: pointer;
+}
+
+.forgot-password-text{
+    color: white;
+    font-family: 'Playfair Display', serif;
+    text-decoration: none;
+    font-size: 15px;
+    align-self: flex-end;
+    margin-right: 11%;
+}
+
+.register-button{
+    margin-top: 7px;
+    width: calc(78% + 5px);
+    height: 56px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3C1518;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+}
+
+.register-button:hover{
+    cursor: pointer;
+    background-color: #4b2d1a;
+    transition: background-color 0.2s;
+}
+
+.login-redirect{
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-top: 11px;
+}
+
+.login-redirect a{
+    color: #3C1518;
+    font-family: 'Playfair Display', serif;
+    text-decoration: underline;
+}
