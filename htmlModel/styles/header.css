@@ -59,7 +59,9 @@ header {
 }
 
 #nav-search-container {
+  background-image: url("../images/misc/vinyl-banner.png");
   background-color: var(--search-bar-text-color);
+  filter: grayscale(1);
   padding: 10px;
 }
 
@@ -69,12 +71,14 @@ header {
   align-items: center;
   background-color: white;
   border-radius: 5px;
-  max-width: 90%;
+  max-width: 60%;
   margin: 0 auto;
+  border: 2px solid black;
 }
 
 #nav-search input {
   font-size: x-large;
+  text-transform:  uppercase;
 }
 
 #search-button {
