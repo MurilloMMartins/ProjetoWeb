@@ -9,18 +9,25 @@
 </head>
 <body>
     <main class="login-container">
-        <div class="login-form">
+        <div class="login-form-container">
+            <h1 class="website-name">Vinil Mil</h1>
+            <form class="login-form">
 
-            <h1>Vinil Mil</h1>
-            <form>
-                <input type="text" placeholder="Usuário ou e-mail">
-                <input type="password" placeholder="Senha"> <input type="checkbox">
-                
-                <br>
-                <a href="">Esqueci a senha</a>
-                <br>
+                <div class="user-field">
+                    <input type="text" class="text-input" placeholder="Usuário ou e-mail">
+                </div>
 
-                <input type="submit" value="Entrar">
+                <div class="password-field">
+                    <input type="password" class="text-input-password" placeholder="Senha">
+                    <input type="checkbox" id="check" class="show-password">
+                    <label for="check">
+                        <img src="../images/login/eye-slash-regular.svg" alt="hide-password" class="show-password-image">
+                    </label>
+                </div>
+
+                <a href="" class="forgot-password-text">Esqueci a senha</a>
+
+                <input type="submit" value="Entrar" class="login-button">
             </form>
         </div>
         <div class="register-redirect">
