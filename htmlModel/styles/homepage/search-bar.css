@@ -1,5 +1,5 @@
 #nav-search-container {
-  background-image: url("../images/misc/vinyl-banner.png");
+  background-image: url("../../images/misc/vinyl-banner.png");
   background-color: var(--search-bar-text-color);
   filter: grayscale(1);
   padding: 10px;
@@ -44,12 +44,4 @@
 
 #search-bar::placeholder {
   color: #999;
-}
-
-#search-bar::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  height: 16px;
-  width: 16px;
-  background-image: url('img/cancel-icon.png');
-  cursor: pointer;
 }

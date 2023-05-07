@@ -24,7 +24,7 @@
     align-items: center;
     padding: 10px;
     overflow: hidden;
-    margin: 25px 0px;
+    margin-bottom: 50px;
 }
 
 .vinyl-container img {
@@ -34,7 +34,7 @@
 
 .vinyl-container img:hover {
     width: 82%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.8);
     transition: width 0.2s, box-shadow 0.2s;
     cursor: pointer;
 }
