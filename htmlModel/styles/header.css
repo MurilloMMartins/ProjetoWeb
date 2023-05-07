@@ -45,12 +45,14 @@ header {
 }
 
 #login-span {
+  color: white;
   margin-right: 10px;
   font-size: medium;
 }
 
-#shopping-cart {
+#shopping-cart-span {
   border: 1px solid white;
+  color: white;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: medium;
