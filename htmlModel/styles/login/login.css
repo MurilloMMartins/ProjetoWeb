@@ -12,15 +12,15 @@ label{
 
 .login-container{
     position: absolute;
-    width: 400px;
-    height: 460px;
-    left: calc(50% - 200px);
-    top: calc(50% - 230px);
+    width: 520px;
+    height: 598px;
+    left: calc(50% - 260px);
+    top: calc(50% - 299px);
 
     box-sizing: border-box;
     background: rgba(254, 250, 224, 0.35);
     
-    border-radius: 14px;
+    border-radius: 18px;
     
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@ label{
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 14px; 
+    border-radius: 18px; 
     padding: 2px;
     z-index: -1;
     background:linear-gradient(135deg, white, rgba(255, 255, 255, 0), white, rgba(255, 255, 255, 0), white); 
@@ -51,11 +51,11 @@ label{
 }
 
 .website-name{
-    margin-top: 44px;
-    margin-bottom: 39px;
+    margin-top: 57px;
+    margin-bottom: 50px;
     text-align: center;
     font-family: 'Playfair Display', serif;
-    font-size: 60px;
+    font-size: 78px;
     color: white;
 }
 
@@ -64,7 +64,7 @@ label{
     border: 0px;
     padding: 0px;
     margin: 0;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .text-input{
@@ -94,14 +94,14 @@ label{
 }
 
 .user-field, .password-field{
-    border-bottom: solid 2px white;
-    border-radius: 3px;
+    border-bottom: solid 3px white;
+    border-radius: 4px;
     width: 78%;
-    padding: 4px 7px;
+    padding: 5px 9px;
 }
 
 .user-field{
-    margin-bottom: 30px;
+    margin-bottom: 39px;
 }
 
 .show-password {
@@ -109,7 +109,7 @@ label{
 }
 
 .show-password-image{
-    width: 14px;
+    width: 18px;
     filter: invert(100%);
 }
 
@@ -121,20 +121,21 @@ label{
     color: white;
     font-family: 'Playfair Display', serif;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 15px;
     align-self: flex-end;
     margin-right: 11%;
 }
 
 .login-button{
-    margin-top: 36px;
-    width: calc(78% + 4px);
-    height: 43px;
-    border-radius: 4px;
+    margin-top: 46px;
+    width: calc(78% + 5px);
+    height: 56px;
+    border-radius: 5px;
     border: none;
     background-color: #3C1518;
     color: white;
     font-family: 'Playfair Display', serif;
+    font-size: 18px;
 }
 
 .login-button:hover{
@@ -146,8 +147,8 @@ label{
 .register-redirect{
     color: white;
     font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    margin-top: 17px;
+    font-size: 18px;
+    margin-top: 22px;
 }
 
 .register-redirect a{
