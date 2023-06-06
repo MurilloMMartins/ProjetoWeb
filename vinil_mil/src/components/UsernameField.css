@@ -1,0 +1,33 @@
+.field-container{
+    border-bottom: solid 3px white;
+    border-radius: 4px;
+    width: 78%;
+    padding: 5px 9px;
+}
+
+.field-text{
+    background: transparent;
+    border: 0px;
+    padding: 0px;
+    margin: 0;
+    font-size: 18px;
+    width: 100%;
+}
+
+.field-text::placeholder{
+    color: white;
+    font-family: 'Playfair Display', serif;
+    opacity: 0.8;
+}
+
+.field-text:focus{
+    outline: none;
+    color: white;
+    font-family: 'Playfair Display', serif;
+}
+
+.field-text:not(:focus){
+    outline: none;
+    color: white;
+    font-family: 'Playfair Display', serif;
+}
