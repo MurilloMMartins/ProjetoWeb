@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './AuthForm.css'
+import PasswordField from './PasswordField';
 import SubmitButton from './SubmitButton';
+import UsernameField from './UsernameField';
 
-const AuthForm = ({children, name}) => {
-    /**
-        @todo: Find a way to submit the login information to the parent
-    **/
+const AuthForm = ({children, name, handleSubmit}) => {
     return (
         <div className="auth-form-container">
-            <form onSubmit={console.log("submited")} className='auth-form'>
+            <form onSubmit={handleSubmit} className='auth-form'>
                 {children}
                 <SubmitButton>{name}</SubmitButton>
             </form>

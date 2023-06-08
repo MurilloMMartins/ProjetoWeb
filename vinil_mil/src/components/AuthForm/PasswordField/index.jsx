@@ -5,7 +5,7 @@ import { IconContext } from 'react-icons'
 import '../FormField.css'
 import './ShowPassword.css'
 
-const PasswordField = ({children}) => {
+const PasswordField = ({children, name, handleChange}) => {
     const [showPassword, setShowPassword] = useState(false);
 
     const handleShowPasswordClick = () => {
@@ -15,7 +15,7 @@ const PasswordField = ({children}) => {
     return (
         <div className="field-container">
             {/* Here we change the input type so the user can see it's password */}
-            <input type={showPassword ? "text" : "password"} className='field-text' style={{width: '94%'}} placeholder={children}/>
+            <input name={name} type={showPassword ? "text" : "password"} className='field-text' onChange={handleChange} style={{width: '94%'}} placeholder={children}/>
             <input type="checkbox" className='password-checkbox' id='password-checkbox' onClick={handleShowPasswordClick}/>
             <label htmlFor='password-checkbox'>
                 {/* This IconContext is necessary to change the size of the icons */}
