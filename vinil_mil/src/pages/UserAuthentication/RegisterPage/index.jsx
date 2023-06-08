@@ -9,7 +9,12 @@ import UsernameField from '../../../components/AuthForm/UsernameField';
 import '../UserAuthentication.css'
 
 const RegisterPage = () => {
-    const [inputs, setInputs] = useState({});
+    const [inputs, setInputs] = useState({
+        username: "",
+        email: "",
+        password: "",
+        "confirm-password": ""
+    });
 
     const handleChange = (event) => {
         const name = event.target.name;
