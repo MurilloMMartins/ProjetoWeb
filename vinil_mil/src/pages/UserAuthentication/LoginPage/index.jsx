@@ -29,6 +29,8 @@ const LoginPage = () => {
     return (
     <div className="auth-container">
         <h1 className='website-name'>Vinil Mil</h1>
+
+        <Spacer height='50px'/>
         
         <AuthForm name='Entrar' handleSubmit={handleSubmit}>
             <UsernameField name="username" handleChange={handleChange}>Usuário ou e-mail</UsernameField>
