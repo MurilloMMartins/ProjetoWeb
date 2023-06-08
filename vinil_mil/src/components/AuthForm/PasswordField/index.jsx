@@ -16,8 +16,8 @@ const PasswordField = ({children, name, handleChange}) => {
         <div className="field-container">
             {/* Here we change the input type so the user can see it's password */}
             <input name={name} type={showPassword ? "text" : "password"} className='field-text' onChange={handleChange} style={{width: '94%'}} placeholder={children}/>
-            <input type="checkbox" className='password-checkbox' id='password-checkbox' onClick={handleShowPasswordClick}/>
-            <label htmlFor='password-checkbox'>
+            <input type="checkbox" className='password-checkbox' id={name} onClick={handleShowPasswordClick}/>
+            <label htmlFor={name}>
                 {/* This IconContext is necessary to change the size of the icons */}
                 <IconContext.Provider value={{size: '20px' , className: 'show-password-icon' }}>
                     {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye/>}
