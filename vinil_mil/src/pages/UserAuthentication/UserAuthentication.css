@@ -1,0 +1,47 @@
+body {
+    background: no-repeat center center fixed;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url("../../data/background.png");
+    background-size: cover;
+}
+
+.auth-container{
+    position: absolute;
+    width: 520px;
+    height: 598px;
+    left: calc(50% - 260px);
+    top: calc(50% - 299px);
+
+    box-sizing: border-box;
+    background: rgba(254, 250, 224, 0.35);
+    
+    border-radius: 18px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.auth-container::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px; 
+    padding: 2px;
+    z-index: -1;
+    background:linear-gradient(135deg, white, rgba(255, 255, 255, 0), white, rgba(255, 255, 255, 0), white); 
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude; 
+}
+
+.website-name{
+    margin-top: 57px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 78px;
+    color: white;
+}
