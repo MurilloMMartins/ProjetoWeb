@@ -1,6 +1,6 @@
 import React from 'react';
-import PasswordField from '../components/PasswordField';
-import UsernameField from '../components/UsernameField';
+import PasswordField from '../components/FormFields/PasswordField';
+import UsernameField from '../components/FormFields/UsernameField';
 import './LoginPage.css'
 
 const LoginPage = () => {
