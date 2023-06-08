@@ -1,3 +1,7 @@
+* {
+    color: white;
+}
+
 body {
     background: no-repeat center center fixed;
     background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url("../../data/background.png");
@@ -44,4 +48,17 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 78px;
     color: white;
+}
+
+.redirect-container{
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    display: flex;
+    gap: 5px;
+}
+
+.redirect-link{
+    color: #3C1518;
+    font-family: 'Playfair Display', serif;
+    text-decoration: underline;
 }
