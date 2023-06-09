@@ -6,12 +6,12 @@ import './Header.css'
 function Header() {
   return (
     <header>
-      <a href="homepage.html">
+      <Link to='/home'>
         <div id="header-left">
           <img id="logo-img" src="../../data/logo.png" alt="Logo Vinil Mil" />
           <span id="logo-span">Vinil Mil</span>
         </div>
-      </a>
+      </Link>
       <div id="header-center"></div>
       <div id="header-right">
         <img id="profile-img" src="../../data/placeholders/default-profile.png" alt="Profile" />
