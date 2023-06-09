@@ -5,7 +5,6 @@ import './SearchContainer.css';
 
 const SearchContainer = ({ allVinyls, setSelectedVinyls }) => {
   const navigate = useNavigate();
-  const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -15,9 +14,7 @@ const SearchContainer = ({ allVinyls, setSelectedVinyls }) => {
     const results = allVinyls.filter((vinyl) =>
       vinyl.title.toLowerCase().includes(searchValue.toLowerCase())
     );
-    setSearchResults(results);
 
-    console.log(results)
     setSelectedVinyls(results)
     navigate("/search")
   };
