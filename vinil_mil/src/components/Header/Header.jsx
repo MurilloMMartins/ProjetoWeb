@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Header.css'
 
@@ -13,9 +14,9 @@ function Header() {
       </a>
       <div id="header-center"></div>
       <div id="header-right">
-        <img id="profile-img" src="../../data/placeholders/default-profile.png" alt="Profile picture" />
-        <a href="login.html"><span id="login-span">Entrar/Registrar</span></a>
-        <a href="shopping-cart.html"><span id="shopping-cart-span">Carrinho</span></a>
+        <img id="profile-img" src="../../data/placeholders/default-profile.png" alt="Profile" />
+        <Link to='/login'><span id="login-span">Entrar/Registrar</span></Link>
+        <Link to='/shopping-cart'><span id="shopping-cart-span">Carrinho</span></Link>
       </div>
     </header>
   );
