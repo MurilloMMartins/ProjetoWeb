@@ -14,9 +14,8 @@
 }
 
 .vinyl-container img:hover {
-    width: 82%;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.8);
-    transition: width 0.2s, box-shadow 0.2s;
+    transition: box-shadow 0.2s;
     cursor: pointer;
 }
 

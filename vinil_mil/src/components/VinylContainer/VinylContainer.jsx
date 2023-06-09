@@ -2,10 +2,10 @@ import React from 'react';
 
 import './VinylContainer.css'
 
-function VinylContainer({ imgSrc, name}) {
+function VinylContainer({ filename, name}) {
   return (
     <div className="vinyl-container" id="highlighted-vinyl-1">
-        <img className="vinyl-cover" src={imgSrc} alt="Vinyl cover" />
+        <img className="vinyl-cover" src={require(`../../data/placeholders/vinyl/${filename}`)} alt="Vinyl cover" />
         <span className="vinyl-name">{name}</span>
     </div>
   );

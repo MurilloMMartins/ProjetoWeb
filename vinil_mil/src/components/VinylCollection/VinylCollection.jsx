@@ -10,7 +10,7 @@ function VinylCollection({ collection }) {
             <ul id="highlighted-vinyls-ul">
             {collection.map((item, index) => (
                 <li key={index}>
-                    <VinylContainer imgSrc={item.imgSrc} name={item.title}/>
+                    <VinylContainer filename={item.filename} name={item.title}/>
                 </li>
             ))}
             </ul>
