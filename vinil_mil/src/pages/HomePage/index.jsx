@@ -5,16 +5,16 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer'
 import SearchContainer from '../../components/SearchContainer/SearchContainer'
 import VinylCollection from '../../components/VinylCollection/VinylCollection';
-import './HomePage.css'
+import './HomePage.css' 
 
-const HomePage = () => {
+const HomePage = ({ vinylHighlights }) => {
     return (
         <>
             <Header />
             <SearchContainer />
             <h1>Em destaque</h1>
             <h2>Populares e lançamentos</h2>
-            <VinylCollection />
+            <VinylCollection collection={vinylHighlights}/>
             <Footer />
         </>
     );
