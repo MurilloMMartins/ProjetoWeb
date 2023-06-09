@@ -1,8 +1,8 @@
 import React from 'react';
 
-import VinylContainer from '../VinylContainer'
+import VinylContainer from '../VinylContainer/VinylContainer'
 
-import 'VinylCollection.css'
+import './VinylCollection.css'
 
 function VinylCollection() {
   return (

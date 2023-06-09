@@ -1,6 +1,6 @@
 import React from 'react';
 
-import 'VinylContainer.css'
+import './VinylContainer.css'
 
 function VinylContainer({ imgSrc, name}) {
   return (

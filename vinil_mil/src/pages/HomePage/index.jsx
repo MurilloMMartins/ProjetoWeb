@@ -1,10 +1,11 @@
 import React from 'react';
 import Spacer from 'react-spacer'
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer'
-import SearchContainer from '../../components/SearchContainer'
-import 'HomePage.css'
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer'
+import SearchContainer from '../../components/SearchContainer/SearchContainer'
+import VinylCollection from '../../components/VinylCollection/VinylCollection';
+import './HomePage.css'
 
 const HomePage = () => {
     return (
@@ -19,4 +20,4 @@ const HomePage = () => {
     );
 }
  
-export default LoginPage;
+export default HomePage;

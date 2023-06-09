@@ -1,14 +1,14 @@
 import React from 'react';
 
-import 'SearchContainer.css'
+import './SearchContainer.css'
 
 function SearchContainer() {
   return (
-    <div className="nav-search-container">
+    <div id="nav-search-container">
         <form>
-            <div className="nav-search">
-                <input className="search-bar" type="text" placeholder="PESQUISE POR ARTISTA, FAIXA OU ÁLBUM" />
-                <div className="search-button">
+            <div id="nav-search">
+                <input id="search-bar" type="text" placeholder="PESQUISE POR ARTISTA, FAIXA OU ÁLBUM" />
+                <div id="search-button">
                     <img id="search-bar-img" src="../../data/search-icon.png" alt="Search bar" />
                 </div>
             </div>
