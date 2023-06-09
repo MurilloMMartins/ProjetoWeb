@@ -47,7 +47,7 @@ function App() {
 
     const vinylHighlights = allVinyls.slice(0, 6);
 
-    const [selectedVinyls, setSelectedVinyls] = useState(vinylHighlights);
+    const [selectedVinyls, setSelectedVinyls] = useState([]);
 
     function updateResults(results) {
         console.log(results);
