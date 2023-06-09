@@ -10,7 +10,7 @@ const SearchContainer = ({ allVinyls, setSelectedVinyls }) => {
   const handleSearch = (event) => {
     event.preventDefault();
 
-    const searchValue = event.target.elements.searchBar.value;
+    const searchValue = event.target.elements.searchBar.value.trim();
 
     const results = allVinyls.filter((vinyl) =>
       vinyl.title.toLowerCase().includes(searchValue.toLowerCase())
