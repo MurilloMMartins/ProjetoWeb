@@ -2,11 +2,11 @@ import React from 'react';
 
 import './VinylContainer.css'
 
-function VinylContainer({ filename, name}) {
+function VinylContainer({ vinylObject, onClick}) {
   return (
     <div className="vinyl-container" id="highlighted-vinyl-1">
-        <img className="vinyl-cover" src={require(`../../data/placeholders/vinyl/${filename}`)} alt="Vinyl cover" />
-        <span className="vinyl-name">{name}</span>
+        <img className="vinyl-cover" src={require(`../../data/placeholders/vinyl/${vinylObject.filename}`)} alt="Vinyl cover" onClick={()=>onClick(vinylObject)}/>
+        <span className="vinyl-name">{vinylObject.title}</span>
     </div>
   );
 }
