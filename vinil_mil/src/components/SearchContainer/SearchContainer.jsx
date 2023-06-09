@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import './SearchContainer.css'
+import './SearchContainer.css';
 
-function SearchContainer() {
+const SearchContainer = ({ allVinyls }) => {
+  const navigate = useNavigate();
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+
+    const searchValue = event.target.elements.searchBar.value;
+
+    const results = allVinyls.filter((vinyl) =>
+      vinyl.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setSearchResults(results);
+
+    console.log(results)
+    /*navigate("/search")*/
+  };
+
   return (
     <div id="nav-search-container">
-        <form>
-            <div id="nav-search">
-                <input id="search-bar" type="text" placeholder="PESQUISE POR ARTISTA, FAIXA OU ÁLBUM" />
-                <div id="search-button">
-                    <img id="search-bar-img" src="../../data/search-icon.png" alt="Search bar" />
-                </div>
-            </div>
-        </form>
+      <form onSubmit={handleSearch}>
+        <div id="nav-search">
+          <input id="search-bar" name="searchBar" type="text" placeholder="PESQUISE POR ARTISTA, FAIXA OU ÁLBUM" />
+          <div id="search-button">
+            <button type="submit">
+              <img id="search-bar-img" src="../../data/search-icon.png" alt="Search bar" />
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   );
 }

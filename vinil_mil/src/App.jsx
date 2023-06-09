@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 
 import LoginPage from './pages/UserAuthentication/LoginPage';
 import RegisterPage from './pages/UserAuthentication/RegisterPage';
-import HomePage from './pages/HomePage'
+import HomePage from './pages/HomePage';
 
 import './App.css';
 
@@ -51,7 +51,7 @@ function App() {
             <Routes>
                 <Route path='/login' element={<LoginPage/>}/>
                 <Route path='/register' element={<RegisterPage/>}/>
-                <Route path='/home' element={<HomePage vinylHighlights={vinylHighlights}/>}/>
+                <Route path='/home' element={<HomePage allVinyls={allVinyls} vinylHighlights={vinylHighlights}/>}/>
             </Routes>
         </BrowserRouter>
     );
