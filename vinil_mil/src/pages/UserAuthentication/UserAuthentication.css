@@ -1,8 +1,4 @@
-* {
-    color: white;
-}
-
-body {
+.user-authentication-body {
     background: no-repeat center center fixed;
     background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url("../../data/background.png");
     background-size: cover;
@@ -50,6 +46,7 @@ body {
 }
 
 .redirect-container{
+    color: white;
     font-family: 'Playfair Display', serif;
     font-size: 18px;
     display: flex;

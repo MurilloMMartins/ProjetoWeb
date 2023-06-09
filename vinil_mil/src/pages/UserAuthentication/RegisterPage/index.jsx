@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import Spacer from 'react-spacer';
 
@@ -9,6 +9,16 @@ import UsernameField from '../../../components/AuthForm/UsernameField';
 import '../UserAuthentication.css'
 
 const RegisterPage = () => {
+    //this is necessary to load out body css style
+    useEffect(()  => {
+        document.body.classList.add('user-auth-body');
+    
+        return () => {
+            document.body.classList.remove('user-auth-body');
+        };
+    });    
+
+
     const [inputs, setInputs] = useState({
         username: "",
         email: "",
