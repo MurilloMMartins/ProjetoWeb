@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Spacer from 'react-spacer'
 import { Link } from 'react-router-dom';
 
@@ -10,6 +10,15 @@ import '../UserAuthentication.css'
 import './LoginPage.css'
 
 const LoginPage = () => {
+    //this is necessary to load out body css style
+    useEffect(()  => {
+        document.body.classList.add('user-authentication-body');
+    
+        return () => {
+            document.body.classList.remove('user-authentication-body');
+        };
+    });    
+
     const [inputs, setInputs] = useState({
         username: "",
         password: ""
