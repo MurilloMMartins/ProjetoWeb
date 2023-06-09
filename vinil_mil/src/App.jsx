@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 
 import LoginPage from './pages/UserAuthentication/LoginPage';
 import RegisterPage from './pages/UserAuthentication/RegisterPage';
 import HomePage from './pages/HomePage';
+import SearchResultsPage from './pages/SearchResultsPage';
 
 import './App.css';
 
@@ -46,12 +47,21 @@ function App() {
 
     const vinylHighlights = allVinyls.slice(0, 6);
 
+    const [selectedVinyls, setSelectedVinyls] = useState(vinylHighlights);
+
+    function updateResults(results) {
+        console.log(results);
+        setSelectedVinyls(results);
+        console.log(selectedVinyls);
+    }
+
     return (
         <BrowserRouter>
             <Routes>
                 <Route path='/login' element={<LoginPage/>}/>
                 <Route path='/register' element={<RegisterPage/>}/>
-                <Route path='/home' element={<HomePage allVinyls={allVinyls} vinylHighlights={vinylHighlights}/>}/>
+                <Route path='/home' element={<HomePage allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults}/>}/>
+                <Route path='/search' element={<SearchResultsPage allVinyls={allVinyls} selectedVinyls={selectedVinyls} setSelectedVinyls={updateResults}/>}/>
             </Routes>
         </BrowserRouter>
     );

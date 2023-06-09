@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './SearchContainer.css';
 
-const SearchContainer = ({ allVinyls }) => {
+const SearchContainer = ({ allVinyls, setSelectedVinyls }) => {
   const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState([]);
 
@@ -18,14 +18,15 @@ const SearchContainer = ({ allVinyls }) => {
     setSearchResults(results);
 
     console.log(results)
-    /*navigate("/search")*/
+    setSelectedVinyls(results)
+    navigate("/search")
   };
 
   return (
     <div id="nav-search-container">
       <form onSubmit={handleSearch}>
         <div id="nav-search">
-          <input id="search-bar" name="searchBar" type="text" placeholder="PESQUISE POR ARTISTA, FAIXA OU ÁLBUM" />
+          <input id="search-bar" name="searchBar" type="text" placeholder="PESQUISE POR ARTISTA, FAIXA OU ÁLBUM" required/>
           <div id="search-button">
             <button type="submit">
               <img id="search-bar-img" src="../../data/search-icon.png" alt="Search bar" />
