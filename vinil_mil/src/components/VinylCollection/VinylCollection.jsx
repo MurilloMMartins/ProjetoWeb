@@ -20,7 +20,6 @@ function VinylCollection({ collection }) {
             <ul id="highlighted-vinyls-ul">
             {collection.map((item, index) => (
                 <li key={index}>
-                    {console.log(item)}
                     <VinylContainer vinylObject={item} onClick={handleVinylClick} />
                 </li>
             ))}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Spacer from 'react-spacer'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import PasswordField from '../../../components/AuthForm/PasswordField';
 import UsernameField from '../../../components/AuthForm/UsernameField';
@@ -9,7 +10,9 @@ import AuthForm from '../../../components/AuthForm';
 import '../UserAuthentication.css'
 import './LoginPage.css'
 
-const LoginPage = () => {
+const LoginPage = ({ setCurUser, userMap }) => {
+    const navigate = useNavigate();
+
     //this is necessary to load out body css style
     useEffect(()  => {
         document.body.classList.add('user-authentication-body');
@@ -32,7 +35,23 @@ const LoginPage = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(inputs);
+        console.log(inputs)
+        const user = login(inputs.username, inputs.password);
+        if (user === undefined) console.log("Login inválido!");
+        else {
+            setCurUser(user);
+            navigate('/home');
+        }
+    }
+
+    const login = (email, pwd) => {
+        const user = userMap.get(email.toLowerCase());
+        console.log(email);
+        console.log(userMap);
+        if (user !== undefined) {
+            if (user.password == pwd) return user;
+        }
+        return undefined;
     }
 
     return (

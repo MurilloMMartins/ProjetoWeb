@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 
 import LoginPage from './pages/UserAuthentication/LoginPage';
 import RegisterPage from './pages/UserAuthentication/RegisterPage';
@@ -9,7 +9,21 @@ import SearchResultsPage from './pages/SearchResultsPage';
 import './App.css';
 
 function App() {
+    const [curUser, setCurUser] = useState();
+    const [selectedVinyls, setSelectedVinyls] = useState([]);
 
+    // temporary solution while there's no server and no database
+    const userMap = new Map();
+    userMap.set("gabrielperao@hotmail.com", {
+        "username": "Gabriel",
+        "password": "senha"
+    });
+    userMap.set("admin@gmail.com", {
+        "username": "Admin",
+        "password": "admin"
+    });
+
+    // temporary solution while there's no server and no database
     const allVinyls = [
         {
             "title": "DEVOTOS PUNK REGGAE",
@@ -47,21 +61,17 @@ function App() {
 
     const vinylHighlights = allVinyls.slice(0, 6);
 
-    const [selectedVinyls, setSelectedVinyls] = useState([]);
-
     function updateResults(results) {
-        console.log(results);
         setSelectedVinyls(results);
-        console.log(selectedVinyls);
     }
 
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/login' element={<LoginPage/>}/>
+                <Route path='/login' element={<LoginPage setCurUser={setCurUser} userMap={userMap}/>}/>
                 <Route path='/register' element={<RegisterPage/>}/>
-                <Route path='/home' element={<HomePage allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults}/>}/>
-                <Route path='/search' element={<SearchResultsPage allVinyls={allVinyls} selectedVinyls={selectedVinyls} setSelectedVinyls={updateResults}/>}/>
+                <Route path='/home' element={<HomePage curUser={curUser} allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults}/>}/>
+                <Route path='/search' element={<SearchResultsPage curUser={curUser} allVinyls={allVinyls} selectedVinyls={selectedVinyls} setSelectedVinyls={updateResults}/>}/>
             </Routes>
         </BrowserRouter>
     );

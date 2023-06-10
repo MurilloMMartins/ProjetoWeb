@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './Header.css'
 
-function Header() {
+function Header({curUser}) {
   return (
     <header>
       <Link to='/home'>
@@ -15,7 +15,9 @@ function Header() {
       <div id="header-center"></div>
       <div id="header-right">
         <img id="profile-img" src={require("../../data/placeholders/default-profile.png")} alt="Profile" />
-        <Link to='/login'><span id="login-span">Entrar/Registrar</span></Link>
+        {
+          curUser === undefined ? <Link to='/login'><span id="login-span">Entrar/Registrar</span></Link> : <Link to='/profile'><span id="login-span">Olá, {curUser.username}</span></Link>
+        }
         <Link to='/shopping-cart'><span id="shopping-cart-span">Carrinho</span></Link>
       </div>
     </header>

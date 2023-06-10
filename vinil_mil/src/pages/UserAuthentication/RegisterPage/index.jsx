@@ -34,7 +34,6 @@ const RegisterPage = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(inputs);
     }
 
     return (

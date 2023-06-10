@@ -7,11 +7,10 @@ import SearchContainer from '../../components/SearchContainer/SearchContainer';
 import VinylCollection from '../../components/VinylCollection/VinylCollection';
 import './HomePage.css';
 
-const HomePage = ({ allVinyls, selectedVinyls, setSelectedVinyls }) => {
-
+const HomePage = ({ curUser, allVinyls, selectedVinyls, setSelectedVinyls }) => {
     return (
         <>
-            <Header />
+            <Header curUser={curUser}/>
             <SearchContainer allVinyls={allVinyls} setSelectedVinyls={setSelectedVinyls}/>
             <h1>Em destaque</h1>
             <h2>Populares e lançamentos</h2>
