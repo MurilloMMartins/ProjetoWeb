@@ -12,8 +12,8 @@ const HomePage = ({ curUser, allVinyls, selectedVinyls, setSelectedVinyls }) => 
         <>
             <Header curUser={curUser}/>
             <SearchContainer allVinyls={allVinyls} setSelectedVinyls={setSelectedVinyls}/>
-            <h1>Em destaque</h1>
-            <h2>Populares e lançamentos</h2>
+            <h1 style={{margin: '20px 0px 0px 20px'}}>Em destaque</h1>
+            <h2 style={{margin: '0px 0px 0px 20px'}}>Populares e lançamentos</h2>
             <VinylCollection collection={selectedVinyls}/>
             <Footer />
         </>
