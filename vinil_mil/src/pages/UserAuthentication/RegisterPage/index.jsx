@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import Spacer from 'react-spacer';
 
 import AuthForm from '../../../components/AuthForm';
@@ -8,7 +9,8 @@ import UsernameField from '../../../components/AuthForm/UsernameField';
 
 import '../UserAuthentication.css'
 
-const RegisterPage = () => {
+const RegisterPage = ({userMap, createUser}) => {
+    const navigate = useNavigate();
     //this is necessary to load out body css style
     useEffect(()  => {
         document.body.classList.add('user-auth-body');
@@ -20,9 +22,9 @@ const RegisterPage = () => {
 
 
     const [inputs, setInputs] = useState({
-        username: "",
-        email: "",
-        password: "",
+        "username": "",
+        "email": "",
+        "password": "",
         "confirm-password": ""
     });
 
@@ -34,6 +36,19 @@ const RegisterPage = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (userMap.get(inputs["email"]) !== undefined) {
+            console.log("Usuário já cadastrado!");
+        }
+        else if (inputs["password"] !== inputs["confirm-password"]) {
+            console.log("As senhas diferem!");
+        } else {
+            createUser({
+                "username": inputs["username"],
+                "email": inputs["email"],
+                "password": inputs["password"]
+            });
+            navigate("/home");
+        }
     }
 
     return (

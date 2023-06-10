@@ -35,7 +35,6 @@ const LoginPage = ({ setCurUser, userMap }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(inputs)
         const user = login(inputs.username, inputs.password);
         if (user === undefined) console.log("Login inválido!");
         else {
@@ -46,8 +45,6 @@ const LoginPage = ({ setCurUser, userMap }) => {
 
     const login = (email, pwd) => {
         const user = userMap.get(email.toLowerCase());
-        console.log(email);
-        console.log(userMap);
         if (user !== undefined) {
             if (user.password == pwd) return user;
         }

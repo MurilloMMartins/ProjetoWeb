@@ -11,17 +11,16 @@ import './App.css';
 function App() {
     const [curUser, setCurUser] = useState();
     const [selectedVinyls, setSelectedVinyls] = useState([]);
-
-    // temporary solution while there's no server and no database
-    const userMap = new Map();
-    userMap.set("gabrielperao@hotmail.com", {
-        "username": "Gabriel",
-        "password": "senha"
-    });
-    userMap.set("admin@gmail.com", {
-        "username": "Admin",
-        "password": "admin"
-    });
+    const [userMap, setUserMap] = useState(new Map([
+        ["gabrielperao@hotmail.com", {
+          "username": "Gabriel",
+          "password": "senha"
+        }],
+        ["admin@gmail.com", {
+            "username": "Admin",
+            "password": "admin"
+        }]
+    ]));
 
     // temporary solution while there's no server and no database
     const allVinyls = [
@@ -65,11 +64,20 @@ function App() {
         setSelectedVinyls(results);
     }
 
+    function createUser(user) {
+        const newUser = {
+            "username": user.username,
+            "password": user.password
+        }
+        setUserMap(new Map(userMap).set(user.email, newUser));
+        setCurUser(newUser);
+    }
+
     return (
         <BrowserRouter>
             <Routes>
                 <Route path='/login' element={<LoginPage setCurUser={setCurUser} userMap={userMap}/>}/>
-                <Route path='/register' element={<RegisterPage/>}/>
+                <Route path='/register' element={<RegisterPage userMap={userMap} createUser={createUser}/>}/>
                 <Route path='/home' element={<HomePage curUser={curUser} allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults}/>}/>
                 <Route path='/search' element={<SearchResultsPage curUser={curUser} allVinyls={allVinyls} selectedVinyls={selectedVinyls} setSelectedVinyls={updateResults}/>}/>
             </Routes>
