@@ -24,8 +24,8 @@ const SearchContainer = ({ allVinyls, setSelectedVinyls }) => {
       <form onSubmit={handleSearch}>
         <div id="nav-search">
           <input id="search-bar" name="searchBar" type="text" placeholder="PESQUISE POR ARTISTA, FAIXA OU ÁLBUM" required/>
-          <div id="search-button">
-            <button id="search-btn" type="submit">
+          <div id="search-button-container">
+            <button id="search-button" type="submit">
               <img id="search-bar-img" src={require("../../data/search-icon.png")} alt="Search bar" />
             </button>
           </div>

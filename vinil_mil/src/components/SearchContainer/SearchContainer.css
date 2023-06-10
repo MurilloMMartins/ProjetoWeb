@@ -21,19 +21,19 @@
   text-transform: uppercase;
 }
 
-#search-btn {
+#search-button {
   background: none;
 	border: none;
 }
 
-#search-button {
+#search-button-container {
   border-left: 2px solid var(--search-bar-text-color);
   padding: 5px 5px 5px 25px;
   display: flex;
   align-items: center;
 }
 
-#search-button:hover {
+#search-button-container:hover {
   cursor: pointer;
 }
 
