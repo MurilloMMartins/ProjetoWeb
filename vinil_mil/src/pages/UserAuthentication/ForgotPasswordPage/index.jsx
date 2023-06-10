@@ -21,7 +21,7 @@ const ForgotPasswordPage = ({ allUsers }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if(resetEmail == "" || !allUsers.some(user => user.email === resetEmail)){
+        if(!allUsers.some(user => user.email === resetEmail)){
             alert("E-mail inválido!");
             return;
         }
