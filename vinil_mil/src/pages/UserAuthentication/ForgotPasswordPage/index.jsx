@@ -6,7 +6,7 @@ import UsernameField from '../../../components/AuthForm/UsernameField';
 import '../UserAuthentication.css'
 import './ForgotPasswordPage.css'
 
-const ForgotPasswordPage = ({ userMap }) => {
+const ForgotPasswordPage = ({ allUsers }) => {
     //this is necessary to load out body css style
     useEffect(()  => {
         document.body.classList.add('user-authentication-body');
@@ -21,7 +21,7 @@ const ForgotPasswordPage = ({ userMap }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if(resetEmail == "" || userMap.get(resetEmail) == undefined){
+        if(resetEmail == "" || !allUsers.some(user => user.email === resetEmail)){
             alert("E-mail inválido!");
             return;
         }

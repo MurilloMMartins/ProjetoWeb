@@ -9,7 +9,7 @@ import UsernameField from '../../../components/AuthForm/UsernameField';
 
 import '../UserAuthentication.css'
 
-const RegisterPage = ({userMap, createUser}) => {
+const RegisterPage = ({allUsers, createUser}) => {
     const navigate = useNavigate();
     //this is necessary to load out body css style
     useEffect(()  => {
@@ -36,19 +36,25 @@ const RegisterPage = ({userMap, createUser}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (userMap.get(inputs["email"]) !== undefined) {
-            console.log("Usuário já cadastrado!");
+        for (const user of allUsers) {
+            if (user.email == inputs["email"]) {
+                console.log("Usuário já cadastrado!");
+                return;
+            }
         }
-        else if (inputs["password"] !== inputs["confirm-password"]) {
+
+        if (inputs["password"] !== inputs["confirm-password"]) {
             console.log("As senhas diferem!");
-        } else {
-            createUser({
-                "username": inputs["username"],
-                "email": inputs["email"],
-                "password": inputs["password"]
-            });
-            navigate("/home");
+            return;
         }
+        
+        createUser({
+            "username": inputs["username"],
+            "email": inputs["email"],
+            "password": inputs["password"]
+        })
+
+        navigate("/home");
     }
 
     return (

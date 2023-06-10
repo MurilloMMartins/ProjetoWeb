@@ -10,7 +10,7 @@ import AuthForm from '../../../components/AuthForm';
 import '../UserAuthentication.css'
 import './LoginPage.css'
 
-const LoginPage = ({ setCurUser, userMap }) => {
+const LoginPage = ({ setCurUser, allUsers }) => {
     const navigate = useNavigate();
 
     //this is necessary to load out body css style
@@ -44,11 +44,15 @@ const LoginPage = ({ setCurUser, userMap }) => {
     }
 
     const login = (email, pwd) => {
-        const user = userMap.get(email.toLowerCase());
-        if (user !== undefined) {
-            if (user.password == pwd) return user;
+        for (const user of allUsers) {
+            if (user.email == email) {
+                if (user.password == pwd) {
+                    return user;
+                }
+                break;
+            }
         }
-        return undefined;
+        return undefined
     }
 
     return (
