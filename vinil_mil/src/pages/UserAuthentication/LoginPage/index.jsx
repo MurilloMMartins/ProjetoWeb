@@ -36,7 +36,7 @@ const LoginPage = ({ setCurUser, allUsers }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const user = login(inputs.username, inputs.password);
-        if (user === undefined) console.log("Login inválido!");
+        if (user === undefined) alert("Login inválido!");
         else {
             setCurUser(user);
             navigate('/home');

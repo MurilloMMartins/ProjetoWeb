@@ -38,13 +38,13 @@ const RegisterPage = ({allUsers, createUser}) => {
         event.preventDefault();
         for (const user of allUsers) {
             if (user.email == inputs["email"]) {
-                console.log("Usuário já cadastrado!");
+                alert("Usuário já cadastrado!");
                 return;
             }
         }
 
         if (inputs["password"] !== inputs["confirm-password"]) {
-            console.log("As senhas diferem!");
+            alert("As senhas diferem!");
             return;
         }
         
