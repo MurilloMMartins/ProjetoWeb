@@ -26,6 +26,10 @@
 	border: none;
 }
 
+#search-button:hover {
+  cursor: pointer;
+}
+
 #search-button-container {
   border-left: 2px solid var(--search-bar-text-color);
   padding: 5px 5px 5px 25px;
