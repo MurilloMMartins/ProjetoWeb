@@ -13,7 +13,7 @@ const SearchResultsPage = ({ curUser, allVinyls, selectedVinyls, setSelectedViny
         <>
             <Header curUser={curUser}/>
             <SearchContainer allVinyls={allVinyls} setSelectedVinyls={setSelectedVinyls}/>
-            <h1>Resultados da busca:</h1>
+            <h1 style={{margin: '20px 0px 0px 20px'}}>Resultados da busca:</h1>
             <VinylCollection collection={selectedVinyls}/>
             <Footer />
         </>
