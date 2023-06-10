@@ -13,10 +13,10 @@ const RegisterPage = ({userMap, createUser}) => {
     const navigate = useNavigate();
     //this is necessary to load out body css style
     useEffect(()  => {
-        document.body.classList.add('user-auth-body');
+        document.body.classList.add('user-authentication-body');
     
         return () => {
-            document.body.classList.remove('user-auth-body');
+            document.body.classList.remove('user-authentication-body');
         };
     });    
 
