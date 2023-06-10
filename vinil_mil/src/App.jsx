@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import SearchResultsPage from './pages/SearchResultsPage';
 
 import './App.css';
+import ForgotPasswordPage from './pages/UserAuthentication/ForgotPasswordPage';
 
 function App() {
     const [curUser, setCurUser] = useState();
@@ -80,6 +81,7 @@ function App() {
                 <Route path='/register' element={<RegisterPage userMap={userMap} createUser={createUser}/>}/>
                 <Route path='/home' element={<HomePage curUser={curUser} allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults}/>}/>
                 <Route path='/search' element={<SearchResultsPage curUser={curUser} allVinyls={allVinyls} selectedVinyls={selectedVinyls} setSelectedVinyls={updateResults}/>}/>
+                <Route path='/forgot-password' element={<ForgotPasswordPage userMap={userMap}/>}/>
             </Routes>
         </BrowserRouter>
     );
