@@ -27,35 +27,51 @@ function App() {
     const allVinyls = [
         {
             "title": "DEVOTOS PUNK REGGAE",
-            "filename": "vinyl1.jpeg"
+            "filename": "vinyl1.jpeg",
+            "price": 250,
+            "available_qty": 8
         },
         {
             "title": "BANDA NOVA MALANDRAGEM",
-            "filename": "vinyl2.jpg"
+            "filename": "vinyl2.jpg",
+            "price": 150,
+            "available_qty": 5
         },
         {
             "title": "O SOM DAS AMÉRICAS 12″ BANDA BLACK RIO",
-            "filename": "vinyl3.jpg"
+            "filename": "vinyl3.jpg",
+            "price": 200,
+            "available_qty": 4
         },
         {
             "title": "AUTOINTITULADO - AUTORAMAS",
-            "filename": "vinyl4.jpeg"
+            "filename": "vinyl4.jpeg",
+            "price": 180,
+            "available_qty": 2
         },
         {
             "title": "A DANÇA DOS NÃO FAMOSOS 12″ MUNDO LIVRE S.A",
-            "filename": "vinyl5.jpg"
+            "filename": "vinyl5.jpg",
+            "price": 230,
+            "available_qty": 10
         },
         {
             "title": "ANTIGAMENTE QUILOMBOS HOJE PERIFERIA 12” VINIL DUPLO Z´ÁFRICA BRASIL",
-            "filename": "vinyl6.jpeg"
+            "filename": "vinyl6.jpeg",
+            "price": 200,
+            "available_qty": 1
         },
         {
-            "title": "ANTIGAMENTE HOJE EM DIA E AMANHÃ",
-            "filename": "vinyl6.jpeg"
+            "title": "SAMBA MATUTO 1969 – BANDA DE PÍFANOS DE CARUARU",
+            "filename": "vinyl7.jpg",
+            "price": 150,
+            "available_qty": 0 
         },
         {
-            "title": "OS ANTIGOS POVOS DA AMÉRICA",
-            "filename": "vinyl6.jpeg"
+            "title": "BETO BRUNO – DEPOIS DO FIM",
+            "filename": "vinyl8.jpg",
+            "price": 170,
+            "available_qty": 13
         }
     ];
 
