@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Navigate } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'
 import Spacer from 'react-spacer';
 
 import AuthForm from '../../../components/AuthForm';
@@ -37,7 +36,7 @@ const RegisterPage = ({allUsers, createUser}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         for (const user of allUsers) {
-            if (user.email == inputs["email"]) {
+            if (user.email === inputs["email"]) {
                 alert("Usuário já cadastrado!");
                 return;
             }

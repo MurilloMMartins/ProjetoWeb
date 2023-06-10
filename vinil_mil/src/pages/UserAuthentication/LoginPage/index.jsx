@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Spacer from 'react-spacer'
-import { Link, Navigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import PasswordField from '../../../components/AuthForm/PasswordField';
 import UsernameField from '../../../components/AuthForm/UsernameField';
@@ -45,8 +44,8 @@ const LoginPage = ({ setCurUser, allUsers }) => {
 
     const login = (email, pwd) => {
         for (const user of allUsers) {
-            if (user.email == email) {
-                if (user.password == pwd) {
+            if (user.email === email) {
+                if (user.password === pwd) {
                     return user;
                 }
                 break;
