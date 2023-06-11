@@ -37,16 +37,9 @@ function ProductModal({ isOpen, setOpenModal, vinylObject }) {
             }
             
             <div className="button-container">
-<<<<<<< HEAD
               <button className='modal-button'
               onClick={() => alert('Item adicionado ao carrinho')}
               disabled={vinylObject.available_qty === 0}>
-=======
-              <button
-                onClick={() => alert('Item adicionado ao carrinho')}
-                disabled={vinylObject.available_qty === 0}
-              >
->>>>>>> refs/remotes/origin/main
                 Comprar
               </button>
               <button className='modal-button' onClick={setOpenModal}>Fechar</button>
