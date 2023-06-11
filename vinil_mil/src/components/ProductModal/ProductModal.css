@@ -40,11 +40,11 @@
     margin-bottom: 10px;
 }
 
-.play-vinyl-icon {
-    cursor: pointer;
+/* ProductModal.css */
+.vinyl-audio {
     margin: 5px;
 }
-
+  
 .button-container {
     display: flex;
     justify-content: center;

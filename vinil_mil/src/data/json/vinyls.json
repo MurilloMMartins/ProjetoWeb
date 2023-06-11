@@ -1,49 +1,57 @@
 [
     {
         "title": "DEVOTOS PUNK REGGAE",
-        "filename": "vinyl1.jpeg",
+        "cover_filename": "vinyl1.jpeg",
+        "audio_filename": "vinyl1.mp3",
         "price": 250,
         "available_qty": 8
     },
     {
         "title": "BANDA NOVA MALANDRAGEM",
-        "filename": "vinyl2.jpg",
+        "cover_filename": "vinyl2.jpg",
+        "audio_filename": "vinyl2.mp3",
         "price": 150,
         "available_qty": 5
     },
     {
         "title": "O SOM DAS AMÉRICAS 12″ BANDA BLACK RIO",
-        "filename": "vinyl3.jpg",
+        "cover_filename": "vinyl3.jpg",
+        "audio_filename": "vinyl3.mp3",
         "price": 200,
         "available_qty": 4
     },
     {
         "title": "AUTOINTITULADO - AUTORAMAS",
-        "filename": "vinyl4.jpeg",
+        "cover_filename": "vinyl4.jpeg",
+        "audio_filename": "vinyl4.mp3",
         "price": 180,
         "available_qty": 2
     },
     {
         "title": "A DANÇA DOS NÃO FAMOSOS 12″ MUNDO LIVRE S.A",
-        "filename": "vinyl5.jpg",
+        "cover_filename": "vinyl5.jpg",
+        "audio_filename": "vinyl5.mp3",
         "price": 230,
         "available_qty": 10
     },
     {
         "title": "ANTIGAMENTE QUILOMBOS HOJE PERIFERIA 12” VINIL DUPLO Z´ÁFRICA BRASIL",
-        "filename": "vinyl6.jpeg",
+        "cover_filename": "vinyl6.jpeg",
+        "audio_filename": "vinyl6.mp3",
         "price": 200,
         "available_qty": 1
     },
     {
         "title": "SAMBA MATUTO 1969 – BANDA DE PÍFANOS DE CARUARU",
-        "filename": "vinyl7.jpg",
+        "cover_filename": "vinyl7.jpg",
+        "audio_filename": "vinyl7.mp3",
         "price": 150,
         "available_qty": 0 
     },
     {
         "title": "BETO BRUNO – DEPOIS DO FIM",
-        "filename": "vinyl8.jpg",
+        "cover_filename": "vinyl8.jpg",
+        "audio_filename": "vinyl8.mp3",
         "price": 170,
         "available_qty": 13
     }

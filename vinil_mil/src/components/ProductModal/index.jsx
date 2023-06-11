@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ProductModal.css';
 
 function ProductModal({ isOpen, setOpenModal, vinylObject }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const toggleAudio = () => {
+    setIsPlaying(!isPlaying);
+  };
+
   if (isOpen) {
     return (
       <div className="product-modal-container">
         <div className="product-modal">
           <img
             className="vinyl-cover"
-            src={require(`../../data/placeholders/vinyl/${vinylObject.filename}`)}
+            src={require(`../../data/placeholders/vinyl/${vinylObject.cover_filename}`)}
             alt="Vinyl cover"
           />
           <div className="details">
@@ -19,15 +25,16 @@ function ProductModal({ isOpen, setOpenModal, vinylObject }) {
                 ? `Em estoque: ${vinylObject.available_qty}`
                 : 'Fora de estoque'}
             </span>
-            <img 
-              className="play-vinyl-icon"
-              src={require('../../data/placeholders/play-button.png')}
-              alt="Play vinyl"
+            <audio
+              className="vinyl-audio"
+              src={require('../../data/audio-previews/vinyl1.mp3')}
+              controls={true}
             />
             <div className="button-container">
               <button
-              onClick={() => alert('Item adicionado ao carrinho')}
-              disabled={vinylObject.available_qty === 0}>
+                onClick={() => alert('Item adicionado ao carrinho')}
+                disabled={vinylObject.available_qty === 0}
+              >
                 Comprar
               </button>
               <button onClick={setOpenModal}>Fechar</button>
