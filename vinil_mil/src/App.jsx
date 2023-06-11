@@ -43,6 +43,7 @@ function App() {
                 <Route path='/login' element={<LoginPage setCurUser={setCurUser} allUsers={allUsers}/>}/>
                 <Route path='/register' element={<RegisterPage allUsers={allUsers} createUser={createUser}/>}/>
                 <Route path='/home' element={<HomePage curUser={curUser} allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults}/>}/>
+                <Route path='/' element={<HomePage curUser={curUser} allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults}/>}/>
                 <Route path='/search' element={<SearchResultsPage curUser={curUser} allVinyls={allVinyls} selectedVinyls={selectedVinyls} setSelectedVinyls={updateResults}/>}/>
                 <Route path='/forgot-password' element={<ForgotPasswordPage allUsers={allUsers}/>}/>
                 <Route path='/profile' element={<ProfilePage curUser={curUser} changeData={changeUserData} setCurUser={setCurUser}/>}/>
