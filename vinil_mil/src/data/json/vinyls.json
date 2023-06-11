@@ -44,7 +44,7 @@
     {
         "title": "SAMBA MATUTO 1969 – BANDA DE PÍFANOS DE CARUARU",
         "cover_filename": "vinyl7.jpg",
-        "audio_filename": "vinyl7.mp3",
+        "audio_filename": null,
         "price": 150,
         "available_qty": 0 
     },

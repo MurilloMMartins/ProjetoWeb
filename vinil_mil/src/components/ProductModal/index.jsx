@@ -25,11 +25,17 @@ function ProductModal({ isOpen, setOpenModal, vinylObject }) {
                 ? `Em estoque: ${vinylObject.available_qty}`
                 : 'Fora de estoque'}
             </span>
-            <audio
-              className="vinyl-audio"
-              src={require(`../../data/audio-previews/${vinylObject.audio_filename}`)}
-              controls={true}
-            />
+            {
+              vinylObject.audio_filename !== null ? 
+              <audio
+                className="vinyl-audio"
+                src={require(`../../data/audio-previews/${vinylObject.audio_filename}`)}
+                controls={true}
+              />
+              :
+              <span className='vinyl-unavailable-audio-span'>Prévia indisponível</span>
+            }
+            
             <div className="button-container">
               <button
                 onClick={() => alert('Item adicionado ao carrinho')}
