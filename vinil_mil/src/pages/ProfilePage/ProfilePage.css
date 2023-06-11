@@ -39,18 +39,9 @@
 .edit-photo{
     width: 155px;
     height: 35px;
-    border-radius: 5px;
-    border: none;
-    background-color: #3C1518;
-    color: white;
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-}
-
-.edit-photo:hover{
-    cursor: pointer;
-    background-color: #4b2d1a;
-    transition: background-color 0.2s;
+    padding-left: 20px;
+    background-color: var(--secondary-color);
+    color: transparent;
 }
 
 .profile-image-container {
@@ -84,3 +75,4 @@
     background-color: #4b2d1a;
     transition: background-color 0.2s;
 }
+

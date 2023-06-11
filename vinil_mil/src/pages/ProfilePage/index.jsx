@@ -34,6 +34,23 @@ const ProfilePage = ({curUser, changeData, setCurUser}) => {
         navigate('/home');
     }
 
+    const loadImage = () => {
+        const fileInput = document.getElementById("profile-photo-input");
+        const img = document.querySelector(".profile-image-edit");
+
+        const file = fileInput.files[0];
+        if (file && file.type.startsWith("image/")) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+            img.src = event.target.result;
+            }
+
+            reader.readAsDataURL(file);
+        } else {
+            alert("Selecione uma imagem válida!");
+        }
+    }
+
     return (
         <>
             <Header curUser={curUser}/>
@@ -46,7 +63,7 @@ const ProfilePage = ({curUser, changeData, setCurUser}) => {
                             <p>Foto de Perfil</p>
                             <img className='profile-image-edit' src={require('../../data/placeholders/default-profile.png')} alt='Profile'/>
                             <Spacer height={'10px'}/>
-                            <button className='edit-photo'>Alterar Foto</button>
+                            <input type="file" id="profile-photo-input" className='edit-photo' onChange={loadImage}></input>
                         </div>
 
                         <div className='basic-info-container'>
