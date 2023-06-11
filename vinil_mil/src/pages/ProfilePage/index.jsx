@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 import Spacer from 'react-spacer';
 import EditForm from '../../components/EditForm';
 import EditField from '../../components/EditForm/EditField';
