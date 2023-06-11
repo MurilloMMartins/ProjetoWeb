@@ -1,0 +1,8 @@
+.hidden-checkbox{
+    display: none;
+}
+
+.show-hidden-icon{
+    color: var(--primary-color);
+    vertical-align: middle;
+}

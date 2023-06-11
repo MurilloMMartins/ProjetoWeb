@@ -51,11 +51,11 @@
     margin-top: 20px;
 }
 
-button {
+.modal-button {
     margin-left: 10px;
     cursor: pointer;
 }
 
-button:disabled {
+.modal-button:disabled {
     cursor: not-allowed;
 }

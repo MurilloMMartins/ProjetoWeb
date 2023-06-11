@@ -11,6 +11,7 @@ import ForgotPasswordPage from './pages/UserAuthentication/ForgotPasswordPage';
 
 import allVinyls from './data/json/vinyls.json';
 import users from './data/json/users.json';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
     const [curUser, setCurUser] = useState();
@@ -29,6 +30,13 @@ function App() {
         setCurUser(newUser);
     }
 
+    function changeUserData(curUser, newUserData) {
+        setAllUsers(allUsers.filter(user => user.email !== curUser.email));
+        createUser(newUserData);
+
+        alert("Informações alteradas!");
+    }
+
     return (
         <BrowserRouter>
             <Routes>
@@ -37,6 +45,7 @@ function App() {
                 <Route path='/home' element={<HomePage curUser={curUser} allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults}/>}/>
                 <Route path='/search' element={<SearchResultsPage curUser={curUser} allVinyls={allVinyls} selectedVinyls={selectedVinyls} setSelectedVinyls={updateResults}/>}/>
                 <Route path='/forgot-password' element={<ForgotPasswordPage allUsers={allUsers}/>}/>
+                <Route path='/profile' element={<ProfilePage curUser={curUser} changeData={changeUserData} setCurUser={setCurUser}/>}/>
             </Routes>
         </BrowserRouter>
     );
