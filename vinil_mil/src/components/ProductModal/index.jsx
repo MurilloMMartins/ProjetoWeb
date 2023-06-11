@@ -27,7 +27,7 @@ function ProductModal({ isOpen, setOpenModal, vinylObject }) {
             </span>
             <audio
               className="vinyl-audio"
-              src={require('../../data/audio-previews/vinyl1.mp3')}
+              src={require(`../../data/audio-previews/${vinylObject.audio_filename}`)}
               controls={true}
             />
             <div className="button-container">
