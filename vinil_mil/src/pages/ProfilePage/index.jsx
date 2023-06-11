@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Spacer from 'react-spacer';
 import EditForm from '../../components/EditForm';
 import EditField from '../../components/EditForm/EditField';
@@ -50,6 +51,15 @@ const ProfilePage = ({curUser, changeData, setCurUser}) => {
             alert("Selecione uma imagem válida!");
         }
     }
+
+    const userIsLogged = (curUser !== undefined);
+    useEffect(() => {
+        if (!userIsLogged) {
+            navigate('/login');
+        }
+    }, [userIsLogged, navigate]);
+
+    if (!userIsLogged) return null;
 
     return (
         <>
