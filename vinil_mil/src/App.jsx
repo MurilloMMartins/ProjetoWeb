@@ -9,9 +9,10 @@ import ForgotPasswordPage from './pages/UserAuthentication/ForgotPasswordPage';
 import ProfilePage from './pages/ProfilePage';
 import ShoppingCartPage from './pages/ShoppingCartPage';
 import AllProductsPage from './pages/AllProductsPage';
+import MenuAdminPage from './pages/MenuAdminPage';
 
-import allVinyls from './data/json/vinyls.json';
-import users from './data/json/users.json';
+import vinyl_data from './data/json/vinyls.json';
+import user_data from './data/json/users.json';
 
 import './App.css';
 import FinishOrderPage from './pages/FinishOrderPage';
@@ -19,7 +20,8 @@ import FinishOrderPage from './pages/FinishOrderPage';
 function App() {
     const [curUser, setCurUser] = useState();
     const [selectedVinyls, setSelectedVinyls] = useState([]);
-    const [allUsers, setAllUsers] = useState(users);
+    const [allUsers, setAllUsers] = useState(user_data);
+    const [allVinyls, setAllVinyls] = useState(vinyl_data);
     const [shoppingCart, setShoppingCart] = useState(new Map());
 
     // temporary solution while there's no server and no database
@@ -60,6 +62,7 @@ function App() {
                 <Route path='/shopping-cart' element={<ShoppingCartPage curUser={curUser} allVinyls={allVinyls} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />} />
                 <Route path='/products' element={<AllProductsPage curUser={curUser} allVinyls={allVinyls} setSelectedVinyls={updateResults} addItemToShoppingCart={addItemToShoppingCart}/>}/>
                 <Route path='/finish-order' element={<FinishOrderPage curUser={curUser}/>}/>
+                <Route path='/admin' element={<MenuAdminPage curUser={curUser} allUsers={allUsers} setAllUsers={setAllUsers} allVinyls={allVinyls} setAllVinyls={setAllVinyls} />}/>
             </Routes>
         </BrowserRouter>
     );
