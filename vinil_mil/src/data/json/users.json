@@ -2,11 +2,13 @@
     {
         "username": "Gabriel",
         "email": "gabrielperao@hotmail.com",
-        "password": "senha"
+        "password": "senha",
+        "card_number": "9423567718640742"
     },
     {
         "username": "admin",
         "email": "admin@admin",
-        "password": "admin"
+        "password": "admin",
+        "card_number": null
     }
 ]

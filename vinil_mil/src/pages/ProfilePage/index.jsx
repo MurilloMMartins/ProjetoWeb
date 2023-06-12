@@ -93,7 +93,7 @@ const ProfilePage = ({curUser, changeData, setCurUser}) => {
                     <EditForm name={'Salvar Alterações'} handleSubmit={handleSecurityInfoChange}>
                         <HiddenEditField name={'password'} value={data.password} handleChange={handleChange}>Senha</HiddenEditField>
                         <Spacer height={'10px'}/>
-                        <HiddenEditField name={'card'} value={'XXXX-XXXX-XXXX-XXXX'}>Cartão</HiddenEditField>
+                        <HiddenEditField name={'card_number'} value={data.card_number} handleChange={handleChange} required={false}>Número do cartão</HiddenEditField>
                         <Spacer height={'10px'}/>
                     </EditForm>
                 </div>
