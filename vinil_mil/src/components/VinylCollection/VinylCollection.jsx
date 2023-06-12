@@ -5,7 +5,7 @@ import VinylContainer from '../VinylContainer/VinylContainer'
 import './VinylCollection.css'
 import ProductModal from '../ProductModal';
 
-function VinylCollection({ collection }) {
+function VinylCollection({ collection, addItemToShoppingCart }) {
     const [openModal, setOpenModal] = useState(false);
 
     const [selectedVinylObject, setSelectedVinylObject] = useState();
@@ -24,7 +24,7 @@ function VinylCollection({ collection }) {
                 </li>
             ))}
             </ul>
-            <ProductModal isOpen={openModal} setOpenModal={() => {setOpenModal(!openModal)}} vinylObject={selectedVinylObject} />
+            <ProductModal isOpen={openModal} setOpenModal={() => {setOpenModal(!openModal)}} vinylObject={selectedVinylObject} addItemToShoppingCart={addItemToShoppingCart}/>
         </div>
     );
 }

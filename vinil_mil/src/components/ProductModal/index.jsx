@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProductModal.css';
+import { AiOutlineConsoleSql } from 'react-icons/ai';
 
-function ProductModal({ isOpen, setOpenModal, vinylObject }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const toggleAudio = () => {
-    setIsPlaying(!isPlaying);
-  };
+function ProductModal({ isOpen, setOpenModal, vinylObject, addItemToShoppingCart }) {
+  const navigate = useNavigate();
+  const addToShoppingCart = () => {
+    addItemToShoppingCart(vinylObject);
+    navigate('/shopping-cart');
+  }
 
   if (isOpen) {
     return (
@@ -38,7 +40,7 @@ function ProductModal({ isOpen, setOpenModal, vinylObject }) {
             
             <div className="button-container">
               <button className='modal-button'
-              onClick={() => alert('Item adicionado ao carrinho')}
+              onClick={addToShoppingCart}
               disabled={vinylObject.available_qty === 0}>
                 Comprar
               </button>

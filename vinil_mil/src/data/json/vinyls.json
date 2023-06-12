@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "title": "DEVOTOS PUNK REGGAE",
         "cover_filename": "vinyl1.jpeg",
         "audio_filename": "vinyl1.mp3",
@@ -7,6 +8,7 @@
         "available_qty": 8
     },
     {
+        "id": 2,
         "title": "BANDA NOVA MALANDRAGEM",
         "cover_filename": "vinyl2.jpg",
         "audio_filename": "vinyl2.mp3",
@@ -14,6 +16,7 @@
         "available_qty": 5
     },
     {
+        "id": 3,
         "title": "O SOM DAS AMÉRICAS 12″ BANDA BLACK RIO",
         "cover_filename": "vinyl3.jpg",
         "audio_filename": "vinyl3.mp3",
@@ -21,6 +24,7 @@
         "available_qty": 4
     },
     {
+        "id": 4,
         "title": "AUTOINTITULADO - AUTORAMAS",
         "cover_filename": "vinyl4.jpeg",
         "audio_filename": "vinyl4.mp3",
@@ -28,6 +32,7 @@
         "available_qty": 2
     },
     {
+        "id": 5,
         "title": "A DANÇA DOS NÃO FAMOSOS 12″ MUNDO LIVRE S.A",
         "cover_filename": "vinyl5.jpg",
         "audio_filename": "vinyl5.mp3",
@@ -35,6 +40,7 @@
         "available_qty": 10
     },
     {
+        "id": 6,
         "title": "ANTIGAMENTE QUILOMBOS HOJE PERIFERIA 12” VINIL DUPLO Z´ÁFRICA BRASIL",
         "cover_filename": "vinyl6.jpeg",
         "audio_filename": "vinyl6.mp3",
@@ -42,6 +48,7 @@
         "available_qty": 1
     },
     {
+        "id": 7,
         "title": "SAMBA MATUTO 1969 – BANDA DE PÍFANOS DE CARUARU",
         "cover_filename": "vinyl7.jpg",
         "audio_filename": null,
@@ -49,6 +56,7 @@
         "available_qty": 0 
     },
     {
+        "id": 8,
         "title": "BETO BRUNO – DEPOIS DO FIM",
         "cover_filename": "vinyl8.jpg",
         "audio_filename": "vinyl8.mp3",
