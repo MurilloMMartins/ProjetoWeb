@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProductModal.css';
 
-function ProductModal({ isOpen, setOpenModal, vinylObject, addItemToShoppingCart }) {
+function ProductModal({ isOpen, setOpenModal, vinylObject, addItemToShoppingCart, allowItemAddition=true }) {
   const navigate = useNavigate();
   const addToShoppingCart = () => {
     addItemToShoppingCart(vinylObject);
@@ -38,11 +38,12 @@ function ProductModal({ isOpen, setOpenModal, vinylObject, addItemToShoppingCart
             }
             
             <div className="button-container">
-              <button className='modal-button'
-              onClick={addToShoppingCart}
-              disabled={vinylObject.available_qty === 0}>
+              {allowItemAddition ?
+              <button className='modal-button' onClick={addToShoppingCart} disabled={vinylObject.available_qty === 0}>
                 Comprar
               </button>
+              : null
+              }
               <button className='modal-button' onClick={setOpenModal}>Fechar</button>
             </div>
           </div>

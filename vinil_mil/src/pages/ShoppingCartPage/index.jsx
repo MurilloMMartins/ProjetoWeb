@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import ProductModal from '../../components/ProductModal';
 
 import './ShoppingCartPage.css'
 
@@ -57,8 +58,18 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
                 <button onClick={() => addProductUnity(productId)}>+</button>
                 <button onClick={() => removeProductUnity(productId)}>-</button>
                 <button onClick={() => removeProduct(productId)}>Remover</button>
+                <button onClick={() => handleVinylClick(productId)}>Detalhes</button>
             </li>
         )
+    }
+
+    const [openModal, setOpenModal] = useState(false);
+    const [selectedVinylObject, setSelectedVinylObject] = useState();
+
+    function handleVinylClick(productId) {
+        const vinylObject = allVinyls.find(vinyl => vinyl.id === productId);
+        setSelectedVinylObject(vinylObject);
+        setOpenModal(true);
     }
 
     return (
@@ -81,6 +92,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
             }
         <button className="leave-shopping-cart-page-button" onClick={leaveShoppingCartPage}>Voltar</button>
         </div>
+        <ProductModal isOpen={openModal} setOpenModal={() => {setOpenModal(!openModal)}} vinylObject={selectedVinylObject} allowItemAddition={false}/>
         <Footer />
         </>
     );
