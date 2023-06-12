@@ -14,18 +14,12 @@ function ProductModal({ isOpen, setOpenModal, vinylObject, addItemToShoppingCart
       <div className="product-modal-container">
         <div className="product-modal">
           <img
-            className="vinyl-cover"
+            className="vinyl-cover-modal"
             src={require(`../../data/placeholders/vinyl/${vinylObject.cover_filename}`)}
             alt="Vinyl cover"
           />
           <div className="details">
             <span className="vinyl-title">{vinylObject.title}</span>
-            <span className="vinyl-price">{`Preço: R$${vinylObject.price}.00`}</span>
-            <span className="vinyl-available-qty">
-              {vinylObject.available_qty > 0
-                ? `Em estoque: ${vinylObject.available_qty}`
-                : 'Fora de estoque'}
-            </span>
             {
               vinylObject.audio_filename !== null ? 
               <audio
@@ -36,7 +30,12 @@ function ProductModal({ isOpen, setOpenModal, vinylObject, addItemToShoppingCart
               :
               <span className='vinyl-unavailable-audio-span'>Prévia indisponível</span>
             }
-            
+            <span className="vinyl-price">{`Preço: R$${vinylObject.price}.00`}</span>
+            <span className="vinyl-available-qty">
+              {vinylObject.available_qty > 0
+                ? `Em estoque: ${vinylObject.available_qty}`
+                : 'Fora de estoque'}
+            </span>
             <div className="button-container">
               {allowItemAddition ?
               <button className='modal-button' onClick={addToShoppingCart} disabled={vinylObject.available_qty === 0}>
