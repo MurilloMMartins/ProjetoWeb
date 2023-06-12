@@ -11,7 +11,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
     const navigate = useNavigate();
 
     function addProductUnity(productId) {
-        const productObject = allVinyls.find(vinyl => vinyl.id == productId);
+        const productObject = allVinyls.find(vinyl => vinyl.id === productId);
         const curQty = shoppingCart.get(productId);
         const newQty = Math.min(productObject.available_qty, curQty+1);
         if (newQty !== curQty) {
@@ -24,7 +24,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
         const curQty = shoppingCart.get(productId);
         const newQty = Math.max(1, curQty-1);
         if (newQty !== curQty) {
-            if (newQty == 0) {
+            if (newQty === 0) {
                 shoppingCart.delete(productId);
             } else {
                 shoppingCart.set(productId, newQty);
@@ -43,7 +43,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
     }
 
     function showProductInfo(productId, quantity) {
-        const productObject = allVinyls.find(vinyl => vinyl.id == productId);
+        const productObject = allVinyls.find(vinyl => vinyl.id === productId);
         if (productObject === undefined) return (
             <li key={productId}>
                 <h2>(Erro ao carregar produto)</h2>
