@@ -8,12 +8,12 @@ import SearchResultsPage from './pages/SearchResultsPage';
 import ForgotPasswordPage from './pages/UserAuthentication/ForgotPasswordPage';
 import ProfilePage from './pages/ProfilePage';
 import ShoppingCartPage from './pages/ShoppingCartPage';
+import AllProductsPage from './pages/AllProductsPage';
 
 import allVinyls from './data/json/vinyls.json';
 import users from './data/json/users.json';
 
 import './App.css';
-import AllProductsPage from './pages/AllProductsPage';
 
 function App() {
     const [curUser, setCurUser] = useState();
