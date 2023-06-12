@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProductModal.css';
-import { AiOutlineConsoleSql } from 'react-icons/ai';
 
 function ProductModal({ isOpen, setOpenModal, vinylObject, addItemToShoppingCart }) {
   const navigate = useNavigate();
