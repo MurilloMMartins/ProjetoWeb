@@ -82,6 +82,10 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
         return totalPrice.toString();
     }
 
+    const FinishOrder = () => {
+        navigate('/finish-order');
+    }
+
     return (
         <>
         <Header curUser={curUser} />
@@ -100,7 +104,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
             </>
             )}
             {shoppingCart.size !== 0 ? (
-            <button className="leave-shopping-cart-page-button">Finalizar compra</button>
+            <button className="leave-shopping-cart-page-button" onClick={FinishOrder}>Finalizar compra</button>
             ) : null
             }
         <button className="leave-shopping-cart-page-button" onClick={leaveShoppingCartPage}>Voltar</button>

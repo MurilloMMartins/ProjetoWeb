@@ -14,6 +14,7 @@ import allVinyls from './data/json/vinyls.json';
 import users from './data/json/users.json';
 
 import './App.css';
+import FinishOrderPage from './pages/FinishOrderPage';
 
 function App() {
     const [curUser, setCurUser] = useState();
@@ -58,6 +59,7 @@ function App() {
                 <Route path='/profile' element={<ProfilePage curUser={curUser} changeData={changeUserData} setCurUser={setCurUser}/>}/>
                 <Route path='/shopping-cart' element={<ShoppingCartPage curUser={curUser} allVinyls={allVinyls} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />} />
                 <Route path='/products' element={<AllProductsPage curUser={curUser} allVinyls={allVinyls} setSelectedVinyls={updateResults} addItemToShoppingCart={addItemToShoppingCart}/>}/>
+                <Route path='/finish-order' element={<FinishOrderPage curUser={curUser}/>}/>
             </Routes>
         </BrowserRouter>
     );
