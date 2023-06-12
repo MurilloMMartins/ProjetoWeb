@@ -39,7 +39,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
     }
 
     function leaveShoppingCartPage() {
-        navigate('/home');
+        navigate(-1);
     }
 
     function showProductInfo(productId, quantity) {
