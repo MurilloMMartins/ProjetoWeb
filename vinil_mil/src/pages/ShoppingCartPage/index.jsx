@@ -55,6 +55,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
                 <h2>{productObject.title}</h2>
                 <p>Disponível em estoque: {productObject.available_qty}</p>
                 <p>Quantidade selecionada: {quantity}</p>
+                <p>Valor: R${productObject.price},00</p>
                 <button onClick={() => addProductUnity(productId)}>+</button>
                 <button onClick={() => removeProductUnity(productId)}>-</button>
                 <button onClick={() => removeProduct(productId)}>Remover</button>
@@ -72,6 +73,15 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
         setOpenModal(true);
     }
 
+    const calculateTotalPrice = () => {
+        let totalPrice = 0;
+        for(const item of shoppingCart){
+            const product = allVinyls.find(vinyl => vinyl.id == item[0]);
+            totalPrice += product.price * item[1];
+        }
+        return totalPrice.toString();
+    }
+
     return (
         <>
         <Header curUser={curUser} />
@@ -82,9 +92,12 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
             {shoppingCart.size === 0 ? (
             <p className='empty-cart-message'>O carrinho está vazio.</p>
             ) : (
-            <ul>
-                {[...shoppingCart].map(([productId, quantity]) => showProductInfo(productId, quantity))}
-            </ul>
+            <>
+                <ul>
+                    {[...shoppingCart].map(([productId, quantity]) => showProductInfo(productId, quantity))}
+                </ul>
+                <h3>Valor Total: R${calculateTotalPrice()},00</h3>
+            </>
             )}
             {shoppingCart.size !== 0 ? (
             <button className="leave-shopping-cart-page-button">Finalizar compra</button>
