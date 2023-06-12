@@ -44,6 +44,23 @@ a {
     margin: 0;
 }
 
+#all-products-button-div {
+    display: flex;
+    justify-content: center;
+}
+  
+#all-products-button {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 18px;
+}
+  
+
 .item-collection-container {
     padding-top: 20px;
 }
