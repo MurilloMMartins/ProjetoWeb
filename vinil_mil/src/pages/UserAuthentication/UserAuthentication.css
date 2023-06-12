@@ -54,7 +54,7 @@
 }
 
 .redirect-link{
-    color: #3C1518;
+    color: var(--primary-color);
     font-family: 'Playfair Display', serif;
     text-decoration: underline;
 }

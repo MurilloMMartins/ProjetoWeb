@@ -14,14 +14,14 @@
 }
 
 .edit-field-text::placeholder{
-    color: #4b2d1a;
+    color: var(--tertiary-color);
     font-family: 'Playfair Display', serif;
     opacity: 0.8;
 }
 
 .edit-field-text:focus{
     outline: none;
-    color: #4b2d1a;
+    color: var(--tertiary-color);
     font-family: 'Playfair Display', serif;
 }
 
