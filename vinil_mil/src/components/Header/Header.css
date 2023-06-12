@@ -29,6 +29,10 @@ header {
     align-items: center;
     font-size: 18px;
   }
+
+  #header-left:hover {
+    font-style: italic;
+  }
   
   #header-right {
     display: flex;

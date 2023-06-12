@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Header.css'
 
 function Header({curUser}) {
+  const [logoSrc, setLogoSrc] = useState(require("../../data/logo.png"));
+
+  const handleMouseEnter = () => {
+    setLogoSrc(require("../../data/animated_logo.gif"));
+  };
+
+  const handleMouseLeave = () => {
+    setLogoSrc(require("../../data/logo.png"));
+  };
   return (
     <header>
       <Link to='/home'>
-        <div id="header-left">
-          <img id="logo-img" src={require("../../data/logo.png")} alt="Logo Vinil Mil" />
+        <div id="header-left" title="Home Page" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <img id="logo-img" src={logoSrc} alt="Logo Vinil Mil" />
           <span id="logo-span">Vinil Mil</span>
         </div>
       </Link>
