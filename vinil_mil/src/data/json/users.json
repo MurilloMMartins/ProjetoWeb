@@ -3,12 +3,14 @@
         "username": "Gabriel",
         "email": "gabrielperao@hotmail.com",
         "password": "senha",
-        "card_number": "9423567718640742"
+        "card_number": "9423567718640742",
+        "admin_privileges": false
     },
     {
         "username": "admin",
         "email": "admin@admin",
         "password": "admin",
-        "card_number": null
+        "card_number": null,
+        "admin_privileges": true
     }
 ]

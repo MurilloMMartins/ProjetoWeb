@@ -50,7 +50,8 @@ const RegisterPage = ({allUsers, createUser}) => {
         createUser({
             "username": inputs["username"],
             "email": inputs["email"],
-            "password": inputs["password"]
+            "password": inputs["password"],
+            "admin_privileges": false
         })
 
         navigate("/home");

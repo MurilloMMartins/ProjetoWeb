@@ -37,8 +37,6 @@ function App() {
         setAllUsers(allUsers.filter(user => user.email !== curUser.email));
         createUser(newUserData);
 
-        console.log(newUserData);
-
         alert("Informações alteradas!");
     }
 
