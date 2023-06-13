@@ -83,6 +83,10 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
     }
 
     const FinishOrder = () => {
+        if(curUser === undefined){
+            navigate('/login');
+            return;
+        }
         navigate('/finish-order');
     }
 
