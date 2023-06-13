@@ -28,6 +28,24 @@ No caso a maior parte dessas páginas irá ser navegada pelo Cliente, enquando u
 ## Test Results
 
 ## Build Procedures
+O projeto foi desenvolvido usando a biblioteca React, para utilizar o projeto é necessário primeiro instalar o npm usando o comando:
+```
+$ sudo apt install npm
+```
+Com o npm instalado, é necessário acessar a pasta do projeto com o comando:
+```
+$ cd vinil_mil/
+```
+Após isso é necessário instalar as dependências da aplicação (que pode demorar um tempo):
+```
+$ npm install
+```
+A partir disso é só iniciar o projeto usando o comando:
+```
+$ npm start
+```
+Depois de um tempo será aberto uma janela no browser com a apĺicação.
+
 
 ## Problems
 
