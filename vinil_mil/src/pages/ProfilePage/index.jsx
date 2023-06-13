@@ -58,7 +58,7 @@ const ProfilePage = ({curUser, changeData, setCurUser}) => {
         if (!userIsLogged && !loggedOff) {
             navigate('/login');
         }
-    }, [userIsLogged, navigate]);
+    }, [userIsLogged, loggedOff, navigate]);
 
     if (!userIsLogged) return null;
 

@@ -76,7 +76,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
     const calculateTotalPrice = () => {
         let totalPrice = 0;
         for(const item of shoppingCart){
-            const product = allVinyls.find(vinyl => vinyl.id == item[0]);
+            const product = allVinyls.find(vinyl => vinyl.id === item[0]);
             totalPrice += product.price * item[1];
         }
         return totalPrice.toString();
