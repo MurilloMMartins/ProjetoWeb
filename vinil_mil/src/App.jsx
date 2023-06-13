@@ -61,7 +61,7 @@ function App() {
                 <Route path='/profile' element={<ProfilePage curUser={curUser} changeData={changeUserData} setCurUser={setCurUser}/>}/>
                 <Route path='/shopping-cart' element={<ShoppingCartPage curUser={curUser} allVinyls={allVinyls} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />} />
                 <Route path='/products' element={<AllProductsPage curUser={curUser} allVinyls={allVinyls} setSelectedVinyls={updateResults} addItemToShoppingCart={addItemToShoppingCart}/>}/>
-                <Route path='/finish-order' element={<FinishOrderPage curUser={curUser}/>}/>
+                <Route path='/finish-order' element={<FinishOrderPage curUser={curUser} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} allVinyls={allVinyls}/>}/>
                 <Route path='/admin' element={<MenuAdminPage curUser={curUser} allUsers={allUsers} setAllUsers={setAllUsers} allVinyls={allVinyls} setAllVinyls={setAllVinyls} />}/>
             </Routes>
         </BrowserRouter>

@@ -1,0 +1,36 @@
+.finish-order-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--primary-color);
+}
+    
+
+.finish-order-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.info-container {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    padding: 22px 5px;
+}
+
+.info-container h2 {
+    color: var(--primary-color);
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.info-container p {
+    font-size: 24px;
+}
