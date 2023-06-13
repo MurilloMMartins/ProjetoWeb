@@ -8,7 +8,7 @@ import Header from '../../components/Header';
 
 import './FinishOrderPage.css'
 
-const FinishOrderPage = ({ curUser, shoppingCart, allVinyls, setShoppingCart }) => {
+const FinishOrderPage = ({ curUser, shoppingCart, setShoppingCart, allVinyls, setAllVinyls }) => {
     const navigate = useNavigate();
 
     const [orderInfo, setOrderInfo] = useState({
@@ -24,9 +24,16 @@ const FinishOrderPage = ({ curUser, shoppingCart, allVinyls, setShoppingCart }) 
     const handleSubmit = (event) => {
         event.preventDefault();
         alert("Obrigado por comprar com a VinilMil");
-        console.log(orderInfo);
 
+        for(const item of shoppingCart){
+            const newItem = allVinyls.find(vinyl => vinyl.id === item[0]);
+            newItem.available_qty -= item[1];
+
+            setAllVinyls(allVinyls.filter(vinyl => vinyl !== item[0]));
+            setAllVinyls(vinyls => [...vinyls, newItem]);
+        }
         setShoppingCart(new Map());
+
         navigate('/home');
     }
 
