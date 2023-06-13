@@ -6,7 +6,7 @@ Membros:
 
 ## Requirements
 Além dos requisitos descritos no documento original, temos os seguintes requisitos específicos para o nosso projeto:
-- Funcionalidade Específica: nosso site irá possuir um sistema de previews de músicas, isso será mais detalhado na próxima secção.
+- Funcionalidade Específica: nosso site irá possuir um sistema de previews de músicas, isso será mais detalhado na próxima seção.
 
 ## Project Description
 Nosso projeto é uma loja online de discos de vinil, chamada "Vinil Mil", nela os usuários podem comprar discos de vinil com músicas de diversos gêneros.  
@@ -22,10 +22,13 @@ Para exemplificar ainda mais como o site será, abaixo está um diagrama de nave
 No caso a maior parte dessas páginas irá ser navegada pelo Cliente, enquando um Administrator só irá ter acesso à um Menu em que ele pode fazer alterações aos produtos da loja.
 
 ## Comments About the Code
+Sem comentários
 
 ## Test Plan
+Para a parte do frontend (ou funcionalidade do cliente) não foram utilizadas ferramentas de teste. Ao invés disso foram feitos testes visuais para saber se os componentes estavam sendo renderizados corretamente ou se os containers estavam se comportando da forma esperada de acordo com o uso deles na aplicação.
 
 ## Test Results
+Para a parte do frontend foram utilizados testes visuais (como dito na seção anterior), portanto não é possivel mostrar o resultado dos testes (além de ver a funcionalidade dos componentes na aplicação).
 
 ## Build Procedures
 O projeto foi desenvolvido usando a biblioteca React, para utilizar o projeto é necessário primeiro instalar o npm usando o comando:
@@ -46,7 +49,8 @@ $ npm start
 ```
 Depois de um tempo será aberto uma janela no browser com a apĺicação.
 
-
 ## Problems
+Sem problemas
 
 ## Comments
+Sem comentários
