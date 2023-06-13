@@ -16,7 +16,7 @@ const HiddenEditField = ({children, name, value, handleChange, required=true}) =
         <div className="edit-field-container">
             <p>{children}:</p>
             {/* Here we change the input type so the user can see it's password */}
-            <input name={name} type={showPassword ? "text" : "password"} defaultValue={value} className='edit-field-text' onChange={handleChange} style={{width: '94%'}} placeholder={children} required={required}/>
+            <input name={name} type={showPassword ? "text" : "password"} defaultValue={value} className='edit-field-text' onChange={handleChange} style={{width: '94%'}} placeholder={children} autoComplete='new-password' required={required}/>
             <input type="checkbox" className='hidden-checkbox' id={name} onClick={handleShowPasswordClick}/>
             <label htmlFor={name}>
                 {/* This IconContext is necessary to change the size of the icons */}
