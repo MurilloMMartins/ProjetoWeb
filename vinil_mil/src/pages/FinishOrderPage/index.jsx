@@ -26,11 +26,13 @@ const FinishOrderPage = ({ curUser, shoppingCart, setShoppingCart, allVinyls, se
         alert("Obrigado por comprar com a VinilMil");
 
         for(const item of shoppingCart){
-            const newItem = allVinyls.find(vinyl => vinyl.id === item[0]);
-            newItem.available_qty -= item[1];
-
-            setAllVinyls(allVinyls.filter(vinyl => vinyl !== item[0]));
-            setAllVinyls(vinyls => [...vinyls, newItem]);
+            for (const vinyl of allVinyls) {
+                if (vinyl.id === item[0]) {
+                    vinyl.available_qty -= item[1];
+                    break;
+                }
+            }
+            setAllVinyls(allVinyls);
         }
         setShoppingCart(new Map());
 
