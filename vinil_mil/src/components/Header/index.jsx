@@ -27,7 +27,11 @@ function Header({curUser}) {
         {
           curUser === undefined ? <Link to='/login'><span id="login-span">Entrar/Registrar</span></Link> : <Link to='/profile'><span id="login-span">Olá, {curUser.username}</span></Link>
         }
-        <Link to='/shopping-cart'><span id="shopping-cart-span">Carrinho</span></Link>
+        {(curUser !== undefined && curUser.admin_privileges === true) ?
+        <Link to='/admin'><span id="header-right-special-option-span">Menu</span></Link>
+        :
+        <Link to='/shopping-cart'><span id="header-right-special-option-span">Carrinho</span></Link>
+        }
       </div>
     </header>
   );

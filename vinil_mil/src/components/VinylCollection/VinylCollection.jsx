@@ -5,7 +5,7 @@ import VinylContainer from '../VinylContainer/VinylContainer'
 import './VinylCollection.css'
 import ProductModal from '../ProductModal';
 
-function VinylCollection({ collection, addItemToShoppingCart }) {
+function VinylCollection({ curUser, collection, addItemToShoppingCart }) {
     const [openModal, setOpenModal] = useState(false);
 
     const [selectedVinylObject, setSelectedVinylObject] = useState();
@@ -15,6 +15,7 @@ function VinylCollection({ collection, addItemToShoppingCart }) {
         setOpenModal(true);
     }
 
+    const allowItemAddition = (curUser === undefined || curUser.admin_privileges === false);
     return (
         <div className="item-collection-container" id="highlights-container">
             <ul id="highlighted-vinyls-ul">
@@ -24,7 +25,7 @@ function VinylCollection({ collection, addItemToShoppingCart }) {
                 </li>
             ))}
             </ul>
-            <ProductModal isOpen={openModal} setOpenModal={() => {setOpenModal(!openModal)}} vinylObject={selectedVinylObject} addItemToShoppingCart={addItemToShoppingCart}/>
+            <ProductModal isOpen={openModal} setOpenModal={() => {setOpenModal(!openModal)}} vinylObject={selectedVinylObject} addItemToShoppingCart={addItemToShoppingCart} allowItemAddition={allowItemAddition}/>
         </div>
     );
 }

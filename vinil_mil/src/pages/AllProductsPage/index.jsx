@@ -17,7 +17,7 @@ const AllProductsPage = ({ curUser, allVinyls, setSelectedVinyls, addItemToShopp
             <Header curUser={curUser}/>
             <SearchContainer allVinyls={allVinyls} setSelectedVinyls={setSelectedVinyls}/>
             <h1 style={{margin: '20px 0px 0px 20px'}}>Todos os produtos:</h1>
-            <VinylCollection collection={allVinyls} addItemToShoppingCart={addItemToShoppingCart}/>
+            <VinylCollection curUser={curUser} collection={allVinyls} addItemToShoppingCart={addItemToShoppingCart}/>
             <Footer />
         </>
     );

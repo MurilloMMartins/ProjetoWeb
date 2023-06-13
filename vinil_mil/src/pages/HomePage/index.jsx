@@ -16,7 +16,7 @@ const HomePage = ({ curUser, allVinyls, selectedVinyls, setSelectedVinyls, addIt
             <SearchContainer allVinyls={allVinyls} setSelectedVinyls={setSelectedVinyls}/>
             <h1 style={{margin: '20px 0px 0px 20px'}}>Em destaque</h1>
             <h2 style={{margin: '0px 0px 0px 20px'}}>Populares e lançamentos</h2>
-            <VinylCollection collection={selectedVinyls} addItemToShoppingCart={addItemToShoppingCart}/>
+            <VinylCollection curUser={curUser} collection={selectedVinyls} addItemToShoppingCart={addItemToShoppingCart}/>
             <div id="all-products-button-div">
                 <button id="all-products-button" onClick={() => navigate('/products')}>Ver tudo</button>
             </div>

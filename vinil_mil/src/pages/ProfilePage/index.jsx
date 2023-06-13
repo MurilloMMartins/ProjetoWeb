@@ -12,6 +12,7 @@ const ProfilePage = ({curUser, changeData, setCurUser}) => {
     const navigate = useNavigate();
 
     const [data, setData] = useState(curUser);
+    const [loggedOff, setLoggedOff] = useState(false);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -31,6 +32,7 @@ const ProfilePage = ({curUser, changeData, setCurUser}) => {
 
     const logOff = () => {
         setCurUser(undefined);
+        setLoggedOff(true);
         navigate('/home');
     }
 
@@ -53,7 +55,7 @@ const ProfilePage = ({curUser, changeData, setCurUser}) => {
 
     const userIsLogged = (curUser !== undefined);
     useEffect(() => {
-        if (!userIsLogged) {
+        if (!userIsLogged && !loggedOff) {
             navigate('/login');
         }
     }, [userIsLogged, navigate]);
