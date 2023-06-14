@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CrudModal from '../../components/CrudModal';
 
-const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls, addItemToShoppingCart }) => {
+const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
     const navigate = useNavigate();
     const [openModal, setOpenModal] = useState(false);
     const [selectedVinylObject, setSelectedVinylObject] = useState();
@@ -29,6 +29,22 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls, addItemToShoppingCart
         setSelectedVinylObject(vinylObject);
         setOpenModal(true);
     }
+
+    function handleVinylAddition() {
+        setSelectedVinylObject(undefined);
+        setOpenModal(true);
+    }
+
+    function saveModifications(vinylObject) {
+        if (vinylObject.id === undefined) {
+            let greatestId = 0;
+            for (const vinyl of allVinyls) {
+                greatestId = Math.max(greatestId, vinyl.id);
+            }
+            vinylObject.id = greatestId + 1;
+        }
+        setAllVinyls([...(allVinyls.filter(vinyl => vinyl.id !== vinylObject.id)), vinylObject]);
+    }
     
     function showVinylInfo(vinylObject) {
         return (
@@ -49,7 +65,8 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls, addItemToShoppingCart
             <ul>
                 {[...allVinyls].map(vinylObject => showVinylInfo(vinylObject))}
             </ul>
-            <CrudModal isOpen={openModal} setOpenModal={() => setOpenModal(!openModal)} vinylObject={selectedVinylObject} />
+            <button onClick={handleVinylAddition}>Adicionar novo álbum</button>
+            <CrudModal isOpen={openModal} setOpenModal={() => setOpenModal(!openModal)} vinylObject={selectedVinylObject} saveModifications={saveModifications}/>
             <Footer />
         </>
     );

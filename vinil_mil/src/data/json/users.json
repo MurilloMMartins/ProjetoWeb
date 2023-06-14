@@ -12,5 +12,12 @@
         "password": "admin",
         "card_number": null,
         "admin_privileges": true
+    },
+    {
+        "username": "Admin",
+        "email": "admin",
+        "password": "admin",
+        "card_number": null,
+        "admin_privileges": true
     }
 ]

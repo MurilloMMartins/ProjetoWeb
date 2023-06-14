@@ -15,7 +15,7 @@ function ProductModal({ isOpen, setOpenModal, vinylObject, addItemToShoppingCart
         <div className="product-modal">
           <img
             className="vinyl-cover-modal"
-            src={require(`../../data/placeholders/vinyl/${vinylObject.cover_filename}`)}
+            src={require(`../../data/placeholders/vinyl/${vinylObject.cover_filename !== null ? vinylObject.cover_filename : "default_vinyl.png"}`)}
             alt="Vinyl cover"
           />
           <div className="details">
