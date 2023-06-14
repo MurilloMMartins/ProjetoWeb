@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Header from '../../components/Header';
@@ -44,11 +44,16 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
 
     function showProductInfo(productId, quantity) {
         const productObject = allVinyls.find(vinyl => vinyl.id === productId);
-        if (productObject === undefined) return (
-            <li key={productId}>
-                <h2>(Erro ao carregar produto)</h2>
-            </li>
-        )
+        if (productObject === undefined || productObject.available_qty == 0) {
+            shoppingCart.delete(productId);
+            setShoppingCart(shoppingCart);
+            return null;
+        }
+        
+        if (quantity > productObject.available_qty) {
+            shoppingCart.set(productId, productObject.available_qty);
+            setShoppingCart(shoppingCart);
+        }
 
         return (
             <li key={productId}>
@@ -77,7 +82,9 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
         let totalPrice = 0;
         for(const item of shoppingCart){
             const product = allVinyls.find(vinyl => vinyl.id === item[0]);
-            totalPrice += product.price * item[1];
+            if (product !== undefined) {
+                totalPrice += product.price * item[1];
+            }
         }
         return totalPrice.toString();
     }

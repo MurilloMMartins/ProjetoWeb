@@ -53,26 +53,26 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
             return;
         }
 
-        if ([price, availableQty].includes(NaN) || title.trim() === "") {
+        if ([parseInt(price), parseInt(availableQty)].includes(NaN) || title.trim() === "") {
             alert("Nome do álbum, preço e quantidade em estoque são campos obrigatórios!")
             return;
         }
-        
+       
         let updatedVinylObject;
         if (vinylObject !== undefined) {
             updatedVinylObject = {
                 ...vinylObject,
                 title: title,
-                price: price,
-                available_qty: availableQty
+                price: parseInt(price),
+                available_qty: parseInt(availableQty)
               };
         } else {
             updatedVinylObject = {
                 title: title,
                 cover_filename: null,
                 audio_filename: null,
-                price: price,
-                available_qty: availableQty
+                price: parseInt(price),
+                available_qty: parseInt(availableQty)
               };
         }
         saveModifications(updatedVinylObject);

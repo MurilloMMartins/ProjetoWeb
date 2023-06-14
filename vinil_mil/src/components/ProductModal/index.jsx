@@ -6,6 +6,7 @@ function ProductModal({ isOpen, setOpenModal, vinylObject, addItemToShoppingCart
   const navigate = useNavigate();
   const addToShoppingCart = () => {
     addItemToShoppingCart(vinylObject);
+    console.log(vinylObject);
     navigate('/shopping-cart');
   }
 
