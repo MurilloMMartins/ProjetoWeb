@@ -5,6 +5,8 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CrudModal from '../../components/CrudModal';
 
+import './MenuAdminPage.css'
+
 const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
     const navigate = useNavigate();
     const [openModal, setOpenModal] = useState(false);
@@ -52,8 +54,8 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
                 <h2>{vinylObject.title}</h2>
                 <p>Valor: R${vinylObject.price}.00</p>
                 <p>Disponível em estoque: {vinylObject.available_qty}</p>
-                <button onClick={() => handleVinylEdition(vinylObject)}>Editar</button>
-                <button onClick={() => removeVinyl(vinylObject.id)}>Remover</button>
+                <button className="menu-admin-vinyl-action-button" onClick={() => handleVinylEdition(vinylObject)}>Editar</button>
+                <button className="menu-admin-vinyl-action-button" onClick={() => removeVinyl(vinylObject.id)}>Remover</button>
             </li>
         );
     };
@@ -61,12 +63,14 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
     return (
         <>
             <Header curUser={curUser}/>
-            <h1 style={{margin: '20px 0px 0px 20px'}}>Menu administrador</h1>
-            <ul>
-                {[...allVinyls].map(vinylObject => showVinylInfo(vinylObject))}
-            </ul>
-            <button onClick={handleVinylAddition}>Adicionar novo álbum</button>
-            <CrudModal isOpen={openModal} setOpenModal={() => setOpenModal(!openModal)} vinylObject={selectedVinylObject} saveModifications={saveModifications}/>
+            <div className="menu-admin">
+                <h1 style={{margin: '20px 0px 0px 20px'}}>Menu administrador</h1>
+                <button className="menu-admin-vinyl-action-button add-vinyl-button" onClick={handleVinylAddition}>Adicionar novo álbum</button>
+                <ul>
+                    {[...allVinyls].map(vinylObject => showVinylInfo(vinylObject))}
+                </ul>
+                <CrudModal isOpen={openModal} setOpenModal={() => setOpenModal(!openModal)} vinylObject={selectedVinylObject} saveModifications={saveModifications}/>
+            </div>
             <Footer />
         </>
     );

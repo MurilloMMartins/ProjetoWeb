@@ -1,0 +1,65 @@
+.menu-admin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--primary-color);
+}
+
+.menu-admin h1 {
+    font-size: 36px;
+    margin: 20px 0;
+}
+
+.menu-admin h2 {
+    margin-bottom: 10px;
+}
+
+.menu-admin p {
+    margin: 2px;
+}
+
+.menu-admin ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-admin li {
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.menu-admin button.menu-admin-vinyl-action-button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.menu-admin button.add-vinyl-button {
+    margin: 20px 0;
+    border: 1px solid var(--primary-color);
+    font-size: 20px;
+}
+
+.menu-admin button.menu-admin-vinyl-action-button:hover {
+    background-color: rgb(0, 0, 0, 0.1);
+}
+
+.menu-admin button.menu-admin-vinyl-action-button:active {
+    background-color: rgb(0, 0, 0, 0.2);
+}
+
+.menu-admin button.menu-admin-vinyl-action-button:focus {
+    outline: none;
+}
