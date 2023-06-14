@@ -57,6 +57,11 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
             alert("Nome do álbum, preço e quantidade em estoque são campos obrigatórios!")
             return;
         }
+
+        if (title.length > "40") {
+            alert("Número máximo de caracteres para o nome do álbum: 40");
+            return;
+        }
        
         let updatedVinylObject;
         if (vinylObject !== undefined) {
@@ -98,9 +103,9 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
                     <span>Nome do álbum:</span>
                     <input id="vinyl-title-input" value={title} onChange={(e) => setTitle(e.target.value)} />
                     <span>Preço:</span>
-                    <input type="number" min="0" id="vinyl-price-input" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    <input type="number" min="0" max="99999999999" id="vinyl-price-input" value={price} onChange={(e) => setPrice(e.target.value)} />
                     <span>Qtd em estoque:</span>
-                    <input type="number" min="0" id="vinyl-available-qty-input" value={availableQty} onChange={(e) => setAvailableQty(e.target.value)} />
+                    <input type="number" min="0" max="99999999999" id="vinyl-available-qty-input" value={availableQty} onChange={(e) => setAvailableQty(e.target.value)} />
                     <div className="button-container">
                         <button className='modal-button' onClick={handleSaveModifications}>Salvar</button>
                         <button className='modal-button' onClick={setOpenModal}>Voltar</button>
