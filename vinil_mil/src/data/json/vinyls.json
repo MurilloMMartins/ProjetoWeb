@@ -33,7 +33,7 @@
     },
     {
         "id": 5,
-        "title": "A DANÇA DOS NÃO FAMOSOS 12″ MUNDO LIVRE S.A",
+        "title": "A DANÇA DOS NÃO FAMOSOS 12″",
         "cover_filename": "vinyl5.jpg",
         "audio_filename": "vinyl5.mp3",
         "price": 230,
@@ -41,7 +41,7 @@
     },
     {
         "id": 6,
-        "title": "ANTIGAMENTE QUILOMBOS HOJE PERIFERIA 12” VINIL DUPLO Z´ÁFRICA BRASIL",
+        "title": "ANTIGAMENTE QUILOMBOS HOJE PERIFERIA 12”",
         "cover_filename": "vinyl6.jpeg",
         "audio_filename": "vinyl6.mp3",
         "price": 200,
@@ -49,7 +49,7 @@
     },
     {
         "id": 7,
-        "title": "SAMBA MATUTO 1969 – BANDA DE PÍFANOS DE CARUARU",
+        "title": "SAMBA MATUTO 1969",
         "cover_filename": "vinyl7.jpg",
         "audio_filename": null,
         "price": 150,

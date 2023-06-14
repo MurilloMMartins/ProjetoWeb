@@ -53,7 +53,10 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
             return;
         }
 
-        if ([parseInt(price), parseInt(availableQty)].includes(NaN) || title.trim() === "") {
+        const numPrice = parseInt(price);
+        const numAvailableQty = parseInt(availableQty);
+
+        if ([numPrice, availableQty].includes(NaN) || title.trim() === "") {
             alert("Nome do álbum, preço e quantidade em estoque são campos obrigatórios!")
             return;
         }
@@ -62,27 +65,37 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
             alert("Número máximo de caracteres para o nome do álbum: 40");
             return;
         }
+
+        const MAX_NUM_VAL = 99999999999;
+        if (numPrice < 0 || numPrice > MAX_NUM_VAL || numAvailableQty < 0 || numAvailableQty > MAX_NUM_VAL) {
+            alert("Valores numéricos devem estar entre 0 e 99999999999!");
+            return;
+        }
        
         let updatedVinylObject;
         if (vinylObject !== undefined) {
             updatedVinylObject = {
                 ...vinylObject,
                 title: title,
-                price: parseInt(price),
-                available_qty: parseInt(availableQty)
+                price: numPrice,
+                available_qty: numAvailableQty
               };
         } else {
             updatedVinylObject = {
                 title: title,
                 cover_filename: null,
                 audio_filename: null,
-                price: parseInt(price),
-                available_qty: parseInt(availableQty)
+                price: numPrice,
+                available_qty: numAvailableQty
               };
         }
         saveModifications(updatedVinylObject);
 
         setOpenModal();
+    }
+
+    function formatValue(value) {
+        return Math.max(Math.min(value, 99999999999), 0);
     }
 
     if (isOpen) {
@@ -103,9 +116,9 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
                     <span>Nome do álbum:</span>
                     <input id="vinyl-title-input" value={title} onChange={(e) => setTitle(e.target.value)} />
                     <span>Preço:</span>
-                    <input type="number" min="0" max="99999999999" id="vinyl-price-input" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    <input type="number" id="vinyl-price-input" value={price} onChange={(e) => setPrice(e.target.value)} />
                     <span>Qtd em estoque:</span>
-                    <input type="number" min="0" max="99999999999" id="vinyl-available-qty-input" value={availableQty} onChange={(e) => setAvailableQty(e.target.value)} />
+                    <input type="number" id="vinyl-available-qty-input" value={availableQty} onChange={(e) => setAvailableQty(e.target.value)} />
                     <div className="button-container">
                         <button className='modal-button' onClick={handleSaveModifications}>Salvar</button>
                         <button className='modal-button' onClick={setOpenModal}>Voltar</button>
