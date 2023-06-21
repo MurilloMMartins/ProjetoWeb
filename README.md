@@ -49,6 +49,13 @@ $ npm start
 ```
 Depois de um tempo será aberto uma janela no browser com a apĺicação.
 
+### Usuários:
+email: admin  
+senha: admin
+
+email: gabrielperao@hotmail.com  
+senha: senha
+
 ## Problems
 Sem problemas
 
