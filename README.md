@@ -3,6 +3,7 @@
 Membros:  
 - Gabriel Barbosa de Amorim Perão - NUSP: 12677874
 - Murillo Moraes Martins - NUSP: 12701599
+- Thaís Ribeiro Lauriano - NUSP: 12542518
 
 ## Requirements
 Além dos requisitos descritos no documento original, temos os seguintes requisitos específicos para o nosso projeto:
