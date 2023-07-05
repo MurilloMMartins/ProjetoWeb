@@ -1,10 +1,18 @@
-const http = require('http');
-const port = 8080;
-const server = http.createServer((req, res) => {
-    if (req.url == '/home') {
-        res.writeHead(200, {"Content-Type": "application/json"});
-        res.end('{"message": "Hello, World"}');
-    }
+const express = require('express');
+const app = express();
+
+
+app.get('/home', (req, res) => {
+    res.contentType("text/html");
+    res.status(200)
+    res.send("Home!");
 })
 
-server.listen(port, () => console.log(`Running on port ${port}`))
+app.get('/vinyls', (req, res) => {
+    res.status(200)
+    res.send("Vinyls");
+})
+
+
+const port = 8080;
+app.listen(port, () => console.log(`Running on port ${port}`));
