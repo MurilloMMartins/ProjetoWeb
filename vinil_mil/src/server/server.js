@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
+const connectToDatabase = require('./connect')
 
+connectToDatabase();
 
 app.get('/home', (req, res) => {
     res.contentType("text/html");
