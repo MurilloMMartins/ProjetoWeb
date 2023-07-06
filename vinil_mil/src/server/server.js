@@ -57,6 +57,18 @@ app.post('/user', async (req, res) => {
     }
 })
 
+app.patch('/user/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        await UserModel.findByIdAndUpdate(id, req.body);
+        res.status(201);
+        res.json({"message": "user successfully updated"});
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+})
+
 app.get('/vinyl', async (req, res) => {
     try {
         const searchParam = req.query.search ? {title: {$regex: '.*' + req.query.search + '.*', $options: 'i'}} : {};
