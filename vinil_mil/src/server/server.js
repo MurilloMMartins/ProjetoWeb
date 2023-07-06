@@ -48,6 +48,24 @@ app.post('/users', async (req, res) => {
     }
 })
 
+app.get('/vinyls', async (req, res) => {
+    try {
+        const searchParam = req.query.search ? {title: {$regex: '.*' + req.query.search + '.*', $options: 'i'}} : {};
+
+        const vinylList = await VinylModel.find(searchParam);
+        const formattedVinylList = vinylList.map(vinyl => {
+            const formattedVinyl = vinyl.toObject();
+            formattedVinyl._id = vinyl._id.toHexString();
+            return formattedVinyl;
+        });
+        res.status(200);
+        res.json(formattedVinylList);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+})
+
 app.post('/vinyls', async (req, res) => {
     try {
         await VinylModel.create(req.body);
