@@ -64,13 +64,24 @@ app.patch('/vinyls/:id', async (req, res) => {
         const id = req.params.id;
         await VinylModel.findByIdAndUpdate(id, req.body);
         res.status(200);
-        res.send({"message": "vinyl successfully updated"});
+        res.json({"message": "vinyl successfully updated"});
     } catch (error) {
         res.status(500);
         res.send(error.message);
     }
 })
 
+app.delete('/vinyls/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        await VinylModel.findByIdAndDelete(id);
+        res.status(200);
+        res.json({"message": "vinyl successfully deleted"});
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+})
 
 const port = 8080;
 app.listen(port, () => console.log(`Running on port ${port}`));
