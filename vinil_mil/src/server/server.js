@@ -131,6 +131,23 @@ app.patch('/cart', async(req, res) => {
     }
 })
 
+app.delete('/cart/:user_id', async (req, res) => {
+    try {
+        const user_id = req.params.user_id;
+        const cart = await CartModel.findOneAndDelete({user_id: user_id});
+        
+        if (cart === null || cart === undefined) {
+            res.status(404);
+            res.json({"message": "cart not found for this user id"});
+        } else {
+            res.status(200);
+            res.json({"message": "cart successfully deleted"});
+        }
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+})
 
 const port = 8080;
 app.listen(port, () => console.log(`Running on port ${port}`));
