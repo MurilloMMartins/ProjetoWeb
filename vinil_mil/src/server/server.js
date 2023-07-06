@@ -16,6 +16,7 @@ connectToDatabase();
 // Data models
 const UserModel = require('./models/user.model');
 const VinylModel = require('./models/vinyl.model');
+const CartModel = require('./models/cart.model');
 
 app.get('/healthcheck', (req, res) => {
     res.contentType("text/html");
@@ -23,7 +24,7 @@ app.get('/healthcheck', (req, res) => {
     res.send("Hello, World!");
 })
 
-app.get('/users', async (req, res) => {
+app.get('/user', async (req, res) => {
     try {
         const user = await UserModel.find({email: req.body.email, password: req.body.password});
         if (user.length > 0) {
@@ -39,7 +40,7 @@ app.get('/users', async (req, res) => {
     }
 })
 
-app.post('/users', async (req, res) => {
+app.post('/user', async (req, res) => {
     try {
         let user = await UserModel.find({email: req.body.email});
         if (user.length > 0) {
@@ -56,7 +57,7 @@ app.post('/users', async (req, res) => {
     }
 })
 
-app.get('/vinyls', async (req, res) => {
+app.get('/vinyl', async (req, res) => {
     try {
         const searchParam = req.query.search ? {title: {$regex: '.*' + req.query.search + '.*', $options: 'i'}} : {};
 
@@ -74,7 +75,7 @@ app.get('/vinyls', async (req, res) => {
     }
 })
 
-app.post('/vinyls', async (req, res) => {
+app.post('/vinyl', async (req, res) => {
     try {
         await VinylModel.create(req.body);
         res.status(201);
@@ -85,11 +86,11 @@ app.post('/vinyls', async (req, res) => {
     }
 })
 
-app.patch('/vinyls/:id', async (req, res) => {
+app.patch('/vinyl/:id', async (req, res) => {
     try {
         const id = req.params.id;
         await VinylModel.findByIdAndUpdate(id, req.body);
-        res.status(200);
+        res.status(201);
         res.json({"message": "vinyl successfully updated"});
     } catch (error) {
         res.status(500);
@@ -97,7 +98,7 @@ app.patch('/vinyls/:id', async (req, res) => {
     }
 })
 
-app.delete('/vinyls/:id', async (req, res) => {
+app.delete('/vinyl/:id', async (req, res) => {
     try {
         const id = req.params.id;
         await VinylModel.findByIdAndDelete(id);
@@ -108,6 +109,28 @@ app.delete('/vinyls/:id', async (req, res) => {
         res.send(error.message);
     }
 })
+
+app.patch('/cart', async(req, res) => {
+    try {
+        const user_id = req.body.user_id;
+        let cart = await CartModel.findOne({user_id: user_id});
+        if (cart) {
+            cart.items = req.body.items;
+        } else {
+            cart = new CartModel({
+                user_id: user_id,
+                items: req.body.items
+            });
+        }
+        await cart.save();
+        res.status(201);
+        res.json({"message": "cart sucessfully updated"});
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+})
+
 
 const port = 8080;
 app.listen(port, () => console.log(`Running on port ${port}`));
