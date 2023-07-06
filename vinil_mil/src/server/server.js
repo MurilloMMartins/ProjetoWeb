@@ -1,6 +1,14 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
+app.use((req, res, next) => {
+    console.log(`=== NEW REQUEST ===`);
+    console.log(`IP: ${req.ip}`);
+    console.log(`Method: ${req.method}`);
+    console.log(`Datetime: ${new Date()}`);
+    console.log(`Headers:\n${JSON.stringify(req.headers, null, 2)}`);
+    next();
+});
 
 const connectToDatabase = require('./connect');
 connectToDatabase();
