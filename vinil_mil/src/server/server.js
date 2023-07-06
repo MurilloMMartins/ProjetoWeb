@@ -7,6 +7,7 @@ connectToDatabase();
 
 // Data models
 const UserModel = require('./models/user.model');
+const VinylModel = require('./models/vinyl.model');
 
 app.get('/healthcheck', (req, res) => {
     res.contentType("text/html");
@@ -41,6 +42,17 @@ app.post('/users', async (req, res) => {
             res.status(201);
             res.json({"message": "user successfully created"});
         }
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+})
+
+app.post('/vinyls', async (req, res) => {
+    try {
+        await VinylModel.create(req.body);
+        res.status(201);
+        res.json({"message": "vinyl successfully created"});
     } catch (error) {
         res.status(500);
         res.send(error.message);
