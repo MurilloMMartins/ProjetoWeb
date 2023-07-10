@@ -42,7 +42,17 @@ const LoginPage = ({ setCurUser, allUsers }) => {
                 setCurUser(data);
                 navigate('/home');
             })
-            .catch(error => alert("Login inválido"));
+            .catch(error => {
+                if(!error.response){
+                    alert("Erro");
+                    return;
+                }
+
+                if(error.response.status === 401)
+                    alert("Login inválido");
+                else
+                    alert("Error");
+            });
     }
 
     return (
