@@ -45,13 +45,35 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
 
     function saveModifications(vinylObject) {
         if (vinylObject.id === undefined) {
-            let greatestId = 0;
+            // new vinyl
+            
+            /*let greatestId = 0;
             for (const vinyl of allVinyls) {
                 greatestId = Math.max(greatestId, vinyl.id);
             }
-            vinylObject.id = greatestId + 1;
+            vinylObject.id = greatestId + 1;*/
+
+            // nao sera passado id na criação do vinil, o BD gera um automaticamente
+            api.post('/vinyl/', vinylObject)
+            .then(response => {
+                if (response.status === 200) {
+                    setAllVinyls([...allVinyls, vinylObject]);
+                }
+            });
+        } else {
+            // vinyl update
+            api.patch(`/vinyl/${vinylObject.id}`, vinylObject)
+            .then(response => {
+                if (response.status === 201) {
+                    setAllVinyls([...(allVinyls.filter(vinyl => vinyl.id !== vinylObject.id)), vinylObject]);
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
         }
-        setAllVinyls([...(allVinyls.filter(vinyl => vinyl.id !== vinylObject.id)), vinylObject]);
+        
+        
     }
     
     function showVinylInfo(vinylObject) {
