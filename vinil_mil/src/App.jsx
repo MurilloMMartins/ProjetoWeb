@@ -54,8 +54,8 @@ function App() {
             <Routes>
                 <Route path='/login' element={<LoginPage setCurUser={setCurUser}/>}/>
                 <Route path='/register' element={<RegisterPage/>}/>
-                <Route path='/home' element={<HomePage curUser={curUser} allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults} addItemToShoppingCart={addItemToShoppingCart} />}/>
-                <Route path='/' element={<HomePage curUser={curUser} allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults} addItemToShoppingCart={addItemToShoppingCart} />}/>
+                <Route path='/home' element={<HomePage curUser={curUser} allVinyls={allVinyls} setSelectedVinyls={updateResults} addItemToShoppingCart={addItemToShoppingCart} />}/>
+                <Route path='/' element={<HomePage curUser={curUser} allVinyls={allVinyls} setSelectedVinyls={updateResults} addItemToShoppingCart={addItemToShoppingCart} />}/>
                 <Route path='/search' element={<SearchResultsPage curUser={curUser} allVinyls={allVinyls} selectedVinyls={selectedVinyls} setSelectedVinyls={updateResults} addItemToShoppingCart={addItemToShoppingCart} />}/>
                 <Route path='/forgot-password' element={<ForgotPasswordPage allUsers={allUsers}/>}/>
                 <Route path='/profile' element={<ProfilePage curUser={curUser} changeData={changeUserData} setCurUser={setCurUser}/>}/>

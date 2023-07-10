@@ -19,7 +19,8 @@ function VinylCollection({ curUser, collection, addItemToShoppingCart }) {
     return (
         <div className="item-collection-container" id="highlights-container">
             <ul id="highlighted-vinyls-ul">
-            {collection.map((item, index) => (
+            { collection === undefined ? <></> :
+            collection.map((item, index) => (
                 <li key={index}>
                     <VinylContainer vinylObject={item} onClick={handleVinylClick} />
                 </li>
