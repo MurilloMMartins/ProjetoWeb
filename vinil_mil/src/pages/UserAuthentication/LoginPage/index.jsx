@@ -38,16 +38,11 @@ const LoginPage = ({ setCurUser, allUsers }) => {
 
         api.post("/user", inputs)
             .then(response => {
-                console.log(response.data)
+                const data = response.data[0];
+                setCurUser(data);
+                navigate('/home');
             })
             .catch(error => alert("Login inválido"));
-
-        // const user = login(inputs.email, inputs.password);
-        // if (user === undefined) alert("Login inválido!");
-        // else {
-        //     setCurUser(user);
-        //     navigate('/home');
-        // }
     }
 
     return (
