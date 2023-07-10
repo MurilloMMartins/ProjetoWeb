@@ -128,6 +128,19 @@ app.delete('/vinyl/:id', async (req, res) => {
     }
 })
 
+app.get('/cart/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const cart = await CartModel.find({user_id: id});
+        res.status(200);
+        res.json(cart);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+})
+
+
 app.patch('/cart', async(req, res) => {
     try {
         const user_id = req.body.user_id;
