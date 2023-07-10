@@ -5,6 +5,7 @@ import Spacer from 'react-spacer';
 import AuthForm from '../../../components/AuthForm';
 import PasswordField from '../../../components/AuthForm/PasswordField';
 import UsernameField from '../../../components/AuthForm/UsernameField';
+import api from '../../../config';
 
 import '../UserAuthentication.css'
 
@@ -18,7 +19,6 @@ const RegisterPage = ({allUsers, createUser}) => {
             document.body.classList.remove('user-authentication-body');
         };
     });    
-
 
     const [inputs, setInputs] = useState({
         "username": "",
@@ -35,26 +35,33 @@ const RegisterPage = ({allUsers, createUser}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        for (const user of allUsers) {
-            if (user.email === inputs["email"]) {
-                alert("Usuário já cadastrado!");
-                return;
-            }
-        }
-
         if (inputs["password"] !== inputs["confirm-password"]) {
             alert("As senhas diferem!");
             return;
         }
-        
-        createUser({
-            "username": inputs["username"],
-            "email": inputs["email"],
-            "password": inputs["password"],
-            "admin_privileges": false
-        })
 
-        navigate("/home");
+        api.post('/register', {
+                username: inputs["username"],
+                email: inputs["email"],
+                password: inputs["password"],
+                card_number: null,
+                admin_privileges: false
+        })
+            .then(response => {
+                alert("Usuário registrado.")
+                navigate('/login');
+            })
+            .catch(error => {
+                if(!error.response){
+                    alert("Erro");
+                    return;
+                }
+
+                if(error.response.status === 409)
+                    alert("Email já está em uso!");
+                else
+                    alert("Error");
+            })
     }
 
     return (
