@@ -12,15 +12,14 @@ import AllProductsPage from './pages/AllProductsPage';
 import MenuAdminPage from './pages/MenuAdminPage';
 
 import vinyl_data from './data/json/vinyls.json';
-import user_data from './data/json/users.json';
 
 import './App.css';
 import FinishOrderPage from './pages/FinishOrderPage';
 
 function App() {
-    const [curUser, setCurUser] = useState();
+    const [curUser, setCurUser] = useState({});
     const [selectedVinyls, setSelectedVinyls] = useState([]);
-    const [allUsers, setAllUsers] = useState(user_data);
+    const [allUsers, setAllUsers] = useState("");
     const [allVinyls, setAllVinyls] = useState(vinyl_data);
     const [shoppingCart, setShoppingCart] = useState(new Map());
 
