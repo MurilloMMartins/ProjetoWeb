@@ -10,7 +10,7 @@ import api from '../../../config';
 import '../UserAuthentication.css'
 import './LoginPage.css'
 
-const LoginPage = ({ setCurUser, allUsers }) => {
+const LoginPage = ({ setCurUser }) => {
     const navigate = useNavigate();
     
     useEffect(()  => {

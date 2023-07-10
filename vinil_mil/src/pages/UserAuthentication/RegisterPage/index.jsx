@@ -9,7 +9,7 @@ import api from '../../../config';
 
 import '../UserAuthentication.css'
 
-const RegisterPage = ({allUsers, createUser}) => {
+const RegisterPage = () => {
     const navigate = useNavigate();
     //this is necessary to load out body css style
     useEffect(()  => {

@@ -52,8 +52,8 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/login' element={<LoginPage setCurUser={setCurUser} allUsers={allUsers}/>}/>
-                <Route path='/register' element={<RegisterPage allUsers={allUsers} createUser={createUser}/>}/>
+                <Route path='/login' element={<LoginPage setCurUser={setCurUser}/>}/>
+                <Route path='/register' element={<RegisterPage/>}/>
                 <Route path='/home' element={<HomePage curUser={curUser} allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults} addItemToShoppingCart={addItemToShoppingCart} />}/>
                 <Route path='/' element={<HomePage curUser={curUser} allVinyls={allVinyls} selectedVinyls={vinylHighlights} setSelectedVinyls={updateResults} addItemToShoppingCart={addItemToShoppingCart} />}/>
                 <Route path='/search' element={<SearchResultsPage curUser={curUser} allVinyls={allVinyls} selectedVinyls={selectedVinyls} setSelectedVinyls={updateResults} addItemToShoppingCart={addItemToShoppingCart} />}/>
