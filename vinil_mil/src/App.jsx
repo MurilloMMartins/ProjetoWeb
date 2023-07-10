@@ -24,9 +24,6 @@ function App() {
     const [allVinyls, setAllVinyls] = useState(vinyl_data);
     const [shoppingCart, setShoppingCart] = useState(new Map());
 
-    // temporary solution while there's no server and no database
-    const vinylHighlights = allVinyls.slice(0, 6);
-
     function updateResults(results) {
         setSelectedVinyls(results);
     }
