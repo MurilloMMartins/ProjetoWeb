@@ -11,9 +11,9 @@ import './LoginPage.css'
 
 const LoginPage = ({ setCurUser, allUsers }) => {
     const navigate = useNavigate();
-
-    //this is necessary to load out body css style
+    
     useEffect(()  => {
+        //this is necessary to load out body css style
         document.body.classList.add('user-authentication-body');
     
         return () => {
@@ -22,7 +22,7 @@ const LoginPage = ({ setCurUser, allUsers }) => {
     });    
 
     const [inputs, setInputs] = useState({
-        username: "",
+        email: "",
         password: ""
     });
 
@@ -34,12 +34,27 @@ const LoginPage = ({ setCurUser, allUsers }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const user = login(inputs.username, inputs.password);
-        if (user === undefined) alert("Login inválido!");
-        else {
-            setCurUser(user);
-            navigate('/home');
-        }
+        
+        fetch('http://localhost:8080/user', {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(inputs)
+        })
+            .then(response => {
+                if(response.status != 200){
+                    throw new Error("Login inválido");
+                }
+                return response.json()
+            })
+            .then(data => console.log(data))
+            .catch(error => alert(error.message));
+
+        // const user = login(inputs.email, inputs.password);
+        // if (user === undefined) alert("Login inválido!");
+        // else {
+        //     setCurUser(user);
+        //     navigate('/home');
+        // }
     }
 
     const login = (email, pwd) => {
@@ -61,7 +76,7 @@ const LoginPage = ({ setCurUser, allUsers }) => {
         <Spacer height='50px'/>
         
         <AuthForm name='Entrar' handleSubmit={handleSubmit}>
-            <UsernameField name="username" handleChange={handleChange}>Usuário ou e-mail</UsernameField>
+            <UsernameField name="email" handleChange={handleChange}>Usuário ou e-mail</UsernameField>
             <Spacer height='39px'/>
             <PasswordField name="password" handleChange={handleChange}>Senha</PasswordField>
             <Link to='/forgot-password' className="forgot-password-text">Esqueci a senha</Link>
