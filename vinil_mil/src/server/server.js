@@ -1,6 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
+
 app.use(express.json());
+app.use(cors());
 app.use((req, res, next) => {
     console.log(`=== NEW REQUEST ===`);
     console.log(`IP: ${req.ip}`);
@@ -26,20 +29,9 @@ app.get('/healthcheck', (req, res) => {
 
 app.get('/user', async (req, res) => {
     try {
-        if (!req.body || Object.keys(req.body).length === 0) {
-            const users = await UserModel.find().select('username email admin_privileges');
-            res.status(200);
-            res.json(users);
-        } else {
-            const user = await UserModel.find({email: req.body.email, password: req.body.password});
-            if (user.length > 0) {
-                res.status(200);
-                res.json(user);
-            } else {
-                res.status(401);
-                res.json({"message": "invalid email or password"});
-            }
-        }
+        const users = await UserModel.find().select('username email admin_privileges');
+        res.status(200);
+        res.json(users);
     } catch (error) {
         res.status(500);
         res.send(error.message);
@@ -47,6 +39,22 @@ app.get('/user', async (req, res) => {
 })
 
 app.post('/user', async (req, res) => {
+    try {
+        const user = await UserModel.find({email: req.body.email, password: req.body.password});
+        if (user.length > 0) {
+            res.status(200);
+            res.json(user);
+        } else {
+            res.status(401);
+            res.json({"message": "invalid email or password"});
+        }
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+})
+
+app.post('/register', async (req, res) => {
     try {
         let user = await UserModel.find({email: req.body.email});
         if (user.length > 0) {
