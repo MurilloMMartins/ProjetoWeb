@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import PasswordField from '../../../components/AuthForm/PasswordField';
 import UsernameField from '../../../components/AuthForm/UsernameField';
 import AuthForm from '../../../components/AuthForm';
+import api from '../../../config';
 
 import '../UserAuthentication.css'
 import './LoginPage.css'
@@ -34,20 +35,12 @@ const LoginPage = ({ setCurUser, allUsers }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
-        fetch('http://localhost:8080/user', {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(inputs)
-        })
+
+        api.post("/user", inputs)
             .then(response => {
-                if(response.status != 200){
-                    throw new Error("Login inválido");
-                }
-                return response.json()
+                console.log(response.data)
             })
-            .then(data => console.log(data))
-            .catch(error => alert(error.message));
+            .catch(error => alert("Login inválido"));
 
         // const user = login(inputs.email, inputs.password);
         // if (user === undefined) alert("Login inválido!");
@@ -55,18 +48,6 @@ const LoginPage = ({ setCurUser, allUsers }) => {
         //     setCurUser(user);
         //     navigate('/home');
         // }
-    }
-
-    const login = (email, pwd) => {
-        for (const user of allUsers) {
-            if (user.email === email) {
-                if (user.password === pwd) {
-                    return user;
-                }
-                break;
-            }
-        }
-        return undefined
     }
 
     return (
