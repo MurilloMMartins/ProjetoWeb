@@ -26,13 +26,19 @@ app.get('/healthcheck', (req, res) => {
 
 app.get('/user', async (req, res) => {
     try {
-        const user = await UserModel.find({email: req.body.email, password: req.body.password});
-        if (user.length > 0) {
+        if (!req.body || Object.keys(req.body).length === 0) {
+            const users = await UserModel.find().select('username email admin_privileges');
             res.status(200);
-            res.json(user);
+            res.json(users);
         } else {
-            res.status(401);
-            res.json({"message": "invalid email or password"});
+            const user = await UserModel.find({email: req.body.email, password: req.body.password});
+            if (user.length > 0) {
+                res.status(200);
+                res.json(user);
+            } else {
+                res.status(401);
+                res.json({"message": "invalid email or password"});
+            }
         }
     } catch (error) {
         res.status(500);
