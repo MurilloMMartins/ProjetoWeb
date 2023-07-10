@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CrudModal from '../../components/CrudModal';
+import api from '../../config';
 
 import './MenuAdminPage.css'
 
@@ -23,7 +24,12 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
 
     function removeVinyl(vinylId) {
         if (window.confirm("Confirmar exclusão do item?")) {
-            setAllVinyls(allVinyls.filter(vinyl => vinyl.id !== vinylId));
+            api.delete(`/vinyl/${vinylId}`)
+            .then(response => {
+                if (response.status === 200) {
+                    setAllVinyls(allVinyls.filter(vinyl => vinyl.id !== vinylId));
+                }
+            })
         }
     }
 
