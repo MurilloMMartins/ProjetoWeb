@@ -6,7 +6,6 @@ function ProductModal({ isOpen, setOpenModal, vinylObject, addItemToShoppingCart
   const navigate = useNavigate();
   const addToShoppingCart = () => {
     addItemToShoppingCart(vinylObject);
-    console.log(vinylObject);
     navigate('/shopping-cart');
   }
 
@@ -39,7 +38,7 @@ function ProductModal({ isOpen, setOpenModal, vinylObject, addItemToShoppingCart
             </span>
             <div className="button-container">
               {allowItemAddition ?
-              <button className='modal-button' onClick={addToShoppingCart} disabled={vinylObject.available_qty === 0}>
+              <button className='modal-button' onClick={addToShoppingCart} disabled={vinylObject.available_qty < 1}>
                 Comprar
               </button>
               : null
