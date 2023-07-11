@@ -56,17 +56,13 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
             // nao sera passado id na criação do vinil, o BD gera um automaticamente
             api.post('/vinyl/', vinylObject)
             .then(response => {
-                if (response.status === 200) {
-                    setAllVinyls([...allVinyls, vinylObject]);
-                }
+                setAllVinyls([...allVinyls, vinylObject]);
             });
         } else {
             // vinyl update
             api.patch(`/vinyl/${vinylObject._id}`, vinylObject)
             .then(response => {
-                if (response.status === 201) {
-                    setAllVinyls([...(allVinyls.filter(vinyl => vinyl._id !== vinylObject._id)), vinylObject]);
-                }
+                setAllVinyls([...(allVinyls.filter(vinyl => vinyl._id !== vinylObject._id)), vinylObject]);
             })
             .catch(error => {
                 console.error(error);
