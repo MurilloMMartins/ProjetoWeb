@@ -5,6 +5,7 @@ import EditForm from '../../components/EditForm';
 import EditField from '../../components/EditForm/EditField';
 import HiddenEditField from '../../components/EditForm/HiddenEditField';
 import Header from '../../components/Header';
+import api from '../../config';
 
 import './ProfilePage.css'
 
@@ -22,12 +23,23 @@ const ProfilePage = ({curUser, changeData, setCurUser}) => {
 
     const handleBasicInfoChange = (event) => {
         event.preventDefault();
-        changeData(curUser, data);
+        saveChanges();
     }
 
     const handleSecurityInfoChange = (event) => {
         event.preventDefault();
-        changeData(curUser, data);
+        saveChanges();
+    }
+
+    const saveChanges = () => {
+        console.log(curUser);
+        api.patch(`/user/${curUser._id}`, data)
+        .then(response => {
+            changeData(curUser, data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
 
     const logOff = () => {

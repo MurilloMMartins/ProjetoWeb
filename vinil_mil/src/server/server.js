@@ -8,8 +8,10 @@ app.use((req, res, next) => {
     console.log(`=== NEW REQUEST ===`);
     console.log(`IP: ${req.ip}`);
     console.log(`Method: ${req.method}`);
+    console.log(`Path: ${req.path}`);
     console.log(`Datetime: ${new Date()}`);
-    console.log(`Headers:\n${JSON.stringify(req.headers, null, 2)}`);
+    console.log(`Headers:\n${JSON.stringify(req.headers, null, 2)}\n`);
+    console.log(`Body:\n${JSON.stringify(req.body, null, 2)}`);
     next();
 });
 
@@ -119,6 +121,7 @@ app.patch('/vinyl/:id', async (req, res) => {
         res.status(201);
         res.json({"message": "vinyl successfully updated"});
     } catch (error) {
+        console.log(error.message);
         res.status(500);
         res.send(error.message);
     }

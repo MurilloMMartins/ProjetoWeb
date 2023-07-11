@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import './CrudModal.css';
-import api from '../../config';
 
 function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
     const [title, setTitle] = useState(vinylObject !== undefined ? vinylObject.title : '');
