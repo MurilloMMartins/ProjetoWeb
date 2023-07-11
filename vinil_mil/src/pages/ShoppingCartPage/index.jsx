@@ -44,7 +44,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
 
     function showProductInfo(productId, quantity) {
         const productObject = allVinyls.find(vinyl => vinyl.id === productId);
-        if (productObject === undefined || productObject.available_qty == 0) {
+        if (productObject === undefined || productObject.available_qty === 0) {
             shoppingCart.delete(productId);
             setShoppingCart(shoppingCart);
             return null;
