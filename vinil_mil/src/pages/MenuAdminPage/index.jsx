@@ -45,18 +45,16 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
 
     function saveModifications(vinylObject) {
         if (vinylObject._id === undefined) {
-            // new vinyl
-            
-            /*let greatestId = 0;
-            for (const vinyl of allVinyls) {
-                greatestId = Math.max(greatestId, vinyl.id);
-            }
-            vinylObject.id = greatestId + 1;*/
-
             // nao sera passado id na criação do vinil, o BD gera um automaticamente
             api.post('/vinyl/', vinylObject)
             .then(response => {
-                setAllVinyls([...allVinyls, vinylObject]);
+                api.get('/vinyl')
+                    .then(response => {
+                        setAllVinyls(response.data);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
             });
         } else {
             // vinyl update
