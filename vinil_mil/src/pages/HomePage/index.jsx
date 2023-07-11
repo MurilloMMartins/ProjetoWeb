@@ -6,7 +6,6 @@ import Footer from '../../components/Footer';
 import SearchContainer from '../../components/SearchContainer/SearchContainer';
 import VinylCollection from '../../components/VinylCollection/VinylCollection';
 import './HomePage.css';
-import api from '../../config';
 
 const HomePage = ({ curUser, allVinyls, setSelectedVinyls, isLoadingVinyls, addItemToShoppingCart }) => {
     const navigate = useNavigate();
@@ -15,7 +14,7 @@ const HomePage = ({ curUser, allVinyls, setSelectedVinyls, isLoadingVinyls, addI
 
     useEffect(() => {
         setHighlights(allVinyls.slice(0, 6));
-    }, [])
+    }, [allVinyls])
 
     return (
         isLoadingVinyls ? <p>Carregando discos de vinyl...</p>
