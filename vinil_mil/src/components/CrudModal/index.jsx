@@ -94,10 +94,6 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
         setOpenModal();
     }
 
-    // function formatValue(value) {
-    //     return Math.max(Math.min(value, 99999999999), 0);
-    // }
-
     if (isOpen) {
     return (
         <div className="product-modal-container">

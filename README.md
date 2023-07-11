@@ -3,6 +3,7 @@
 Membros:  
 - Gabriel Barbosa de Amorim Perão - NUSP: 12677874
 - Murillo Moraes Martins - NUSP: 12701599
+- Thaís Ribeiro Lauriano - NUSP: 12542518
 
 ## Requirements
 Além dos requisitos descritos no documento original, temos os seguintes requisitos específicos para o nosso projeto:
@@ -48,6 +49,13 @@ A partir disso é só iniciar o projeto usando o comando:
 $ npm start
 ```
 Depois de um tempo será aberto uma janela no browser com a apĺicação.
+
+### Usuários:
+email: admin  
+senha: admin
+
+email: gabrielperao@hotmail.com  
+senha: senha
 
 ## Problems
 Sem problemas

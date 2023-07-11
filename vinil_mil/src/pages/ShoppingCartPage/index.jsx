@@ -11,7 +11,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
     const navigate = useNavigate();
 
     function addProductUnity(productId) {
-        const productObject = allVinyls.find(vinyl => vinyl.id === productId);
+        const productObject = allVinyls.find(vinyl => vinyl._id === productId);
         const curQty = shoppingCart.get(productId);
         const newQty = Math.min(productObject.available_qty, curQty+1);
         if (newQty !== curQty) {
@@ -43,7 +43,11 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
     }
 
     function showProductInfo(productId, quantity) {
+<<<<<<< HEAD
         const productObject = allVinyls.find(vinyl => vinyl.id === productId);
+=======
+        const productObject = allVinyls.find(vinyl => vinyl._id === productId);
+>>>>>>> 7ef3ae02f6fc08fb89477e2cea07fade0bd63cc5
         if (productObject === undefined || productObject.available_qty === 0) {
             shoppingCart.delete(productId);
             setShoppingCart(shoppingCart);
@@ -73,7 +77,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
     const [selectedVinylObject, setSelectedVinylObject] = useState();
 
     function handleVinylClick(productId) {
-        const vinylObject = allVinyls.find(vinyl => vinyl.id === productId);
+        const vinylObject = allVinyls.find(vinyl => vinyl._id === productId);
         setSelectedVinylObject(vinylObject);
         setOpenModal(true);
     }
@@ -81,7 +85,7 @@ const ShoppingCartPage = ({ allVinyls, curUser, shoppingCart, setShoppingCart })
     const calculateTotalPrice = () => {
         let totalPrice = 0;
         for(const item of shoppingCart){
-            const product = allVinyls.find(vinyl => vinyl.id === item[0]);
+            const product = allVinyls.find(vinyl => vinyl._id === item[0]);
             if (product !== undefined) {
                 totalPrice += product.price * item[1];
             }

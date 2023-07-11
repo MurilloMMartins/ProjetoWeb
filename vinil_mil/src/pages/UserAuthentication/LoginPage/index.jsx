@@ -5,15 +5,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import PasswordField from '../../../components/AuthForm/PasswordField';
 import UsernameField from '../../../components/AuthForm/UsernameField';
 import AuthForm from '../../../components/AuthForm';
+import api from '../../../config';
 
 import '../UserAuthentication.css'
 import './LoginPage.css'
 
-const LoginPage = ({ setCurUser, allUsers }) => {
+const LoginPage = ({ setCurUser }) => {
     const navigate = useNavigate();
-
-    //this is necessary to load out body css style
+    
     useEffect(()  => {
+        //this is necessary to load out body css style
         document.body.classList.add('user-authentication-body');
     
         return () => {
@@ -22,7 +23,7 @@ const LoginPage = ({ setCurUser, allUsers }) => {
     });    
 
     const [inputs, setInputs] = useState({
-        username: "",
+        email: "",
         password: ""
     });
 
@@ -34,24 +35,24 @@ const LoginPage = ({ setCurUser, allUsers }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const user = login(inputs.username, inputs.password);
-        if (user === undefined) alert("Login inválido!");
-        else {
-            setCurUser(user);
-            navigate('/home');
-        }
-    }
 
-    const login = (email, pwd) => {
-        for (const user of allUsers) {
-            if (user.email === email) {
-                if (user.password === pwd) {
-                    return user;
+        api.post("/user", inputs)
+            .then(response => {
+                const data = response.data[0];
+                setCurUser(data);
+                navigate('/home');
+            })
+            .catch(error => {
+                if(!error.response){
+                    alert("Erro");
+                    return;
                 }
-                break;
-            }
-        }
-        return undefined
+
+                if(error.response.status === 401)
+                    alert("Login inválido");
+                else
+                    alert("Error");
+            });
     }
 
     return (
@@ -61,7 +62,7 @@ const LoginPage = ({ setCurUser, allUsers }) => {
         <Spacer height='50px'/>
         
         <AuthForm name='Entrar' handleSubmit={handleSubmit}>
-            <UsernameField name="username" handleChange={handleChange}>Usuário ou e-mail</UsernameField>
+            <UsernameField name="email" handleChange={handleChange}>Usuário ou e-mail</UsernameField>
             <Spacer height='39px'/>
             <PasswordField name="password" handleChange={handleChange}>Senha</PasswordField>
             <Link to='/forgot-password' className="forgot-password-text">Esqueci a senha</Link>

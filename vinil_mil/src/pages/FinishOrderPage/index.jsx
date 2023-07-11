@@ -5,6 +5,7 @@ import EditForm from '../../components/EditForm';
 import EditField from '../../components/EditForm/EditField';
 import HiddenEditField from '../../components/EditForm/HiddenEditField';
 import Header from '../../components/Header';
+import api from '../../config';
 
 import './FinishOrderPage.css'
 
@@ -23,26 +24,36 @@ const FinishOrderPage = ({ curUser, shoppingCart, setShoppingCart, allVinyls, se
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert("Obrigado por comprar com a VinilMil");
 
         for(const item of shoppingCart){
             for (const vinyl of allVinyls) {
-                if (vinyl.id === item[0]) {
+                if (vinyl._id === item[0]) {
                     vinyl.available_qty -= item[1];
-                    break;
+                    
+                    const url = "/vinyl/" + vinyl._id;
+                    const new_qty = { "available_qty": vinyl.available_qty };
+                    
+                    api.patch(url, new_qty)
+                        .then()
+                        .catch(err => {
+                            alert("Ocorreu um erro!")
+                            navigate('/home');
+                            return;
+                        })
                 }
             }
             setAllVinyls(allVinyls);
         }
-        setShoppingCart(new Map());
+        alert("Obrigado por comprar com a VinilMil");
 
+        setShoppingCart(new Map());
         navigate('/home');
     }
 
     const calculateTotalPrice = () => {
         let totalPrice = 0;
         for(const item of shoppingCart){
-            const product = allVinyls.find(vinyl => vinyl.id === item[0]);
+            const product = allVinyls.find(vinyl => vinyl._id === item[0]);
             totalPrice += product.price * item[1];
         }
         return totalPrice.toString();
