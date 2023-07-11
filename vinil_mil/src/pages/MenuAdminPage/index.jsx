@@ -27,7 +27,7 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
             api.delete(`/vinyl/${vinylId}`)
             .then(response => {
                 if (response.status === 200) {
-                    setAllVinyls(allVinyls.filter(vinyl => vinyl.id !== vinylId));
+                    setAllVinyls(allVinyls.filter(vinyl => vinyl._id !== vinylId));
                 }
             })
         }
@@ -44,7 +44,7 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
     }
 
     function saveModifications(vinylObject) {
-        if (vinylObject.id === undefined) {
+        if (vinylObject._id === undefined) {
             // new vinyl
             
             /*let greatestId = 0;
@@ -62,10 +62,10 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
             });
         } else {
             // vinyl update
-            api.patch(`/vinyl/${vinylObject.id}`, vinylObject)
+            api.patch(`/vinyl/${vinylObject._id}`, vinylObject)
             .then(response => {
                 if (response.status === 201) {
-                    setAllVinyls([...(allVinyls.filter(vinyl => vinyl.id !== vinylObject.id)), vinylObject]);
+                    setAllVinyls([...(allVinyls.filter(vinyl => vinyl._id !== vinylObject._id)), vinylObject]);
                 }
             })
             .catch(error => {
@@ -78,12 +78,12 @@ const MenuAdminPage = ({ curUser, allVinyls, setAllVinyls }) => {
     
     function showVinylInfo(vinylObject) {
         return (
-            <li key={vinylObject.id}>
+            <li key={vinylObject._id}>
                 <h2>{vinylObject.title}</h2>
                 <p>Valor: R${vinylObject.price}.00</p>
                 <p>Disponível em estoque: {vinylObject.available_qty}</p>
                 <button className="menu-admin-vinyl-action-button" onClick={() => handleVinylEdition(vinylObject)}>Editar</button>
-                <button className="menu-admin-vinyl-action-button" onClick={() => removeVinyl(vinylObject.id)}>Remover</button>
+                <button className="menu-admin-vinyl-action-button" onClick={() => removeVinyl(vinylObject._id)}>Remover</button>
             </li>
         );
     };
