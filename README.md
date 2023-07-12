@@ -32,6 +32,13 @@ Para a parte do backend foram realizados testes usando a ferramenta Postman para
 <br>
 No workspace encontram-se modelos para testar todos os endpoints, com request-bodies já prontos. Também é possível alterar os bodies, adicionando os dados desejados para o teste.
 
+Ainda para o backend, planejamos realizar testes automatizados utilizando a ferramenta Jest para garantir que seja possível:
+  - registrar-se como novo usuário,
+  - fazer login como usuário ou como administrador,
+  - adicionar, editar e remover produtos do estoque como administrador,
+  - adicionar produtos ao carrinho e finalizar pedido como usuário e
+  - buscar por produtos pelo nome.
+
 ## Test Results
 Para a parte do frontend foram utilizados testes visuais (como dito na seção anterior), portanto não é possivel mostrar o resultado dos testes (além de ver a funcionalidade dos componentes na aplicação).
 
