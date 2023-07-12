@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-app-rewired --openssl-legacy-provider start",
     "build": "react-app-rewired build",
-    "test": "react-scripts test",
+    "test": "npx nodemon index.test.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,12 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< HEAD
-=======
   },
   "devDependencies": {
     "nodemon": "^2.0.22",
     "react-app-rewired": "^2.2.1"
->>>>>>> 7895400e3051d8791776e586ff08f2a3ba84e188
   }
 }
