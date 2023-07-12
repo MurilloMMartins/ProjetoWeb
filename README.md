@@ -62,7 +62,9 @@ email: gabrielperao@hotmail.com
 senha: senha
 
 ## Problems
-Sem problemas
+Ao adicionar um áudio ou uma imagem, a aplicação "reinicia", isso ocorre pois o frontend lê as imagens diretamente do diretório, o correto seria ter uma entrada no backend que serviria as imagens para o frontend.
+
+O login não é feito nem com cookies nem com uma sessão, o que faz com que, ao atualizar a página, o usuário seja deslogado de sua conta. O mesmo é ocorre com o carrinho de compras.
 
 ## Comments
 Sem comentários
