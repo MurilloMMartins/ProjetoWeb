@@ -8,6 +8,8 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
     const [price, setPrice] = useState(vinylObject !== undefined ? vinylObject.price : '');
     const [availableQty, setAvailableQty] = useState(vinylObject !== undefined ? vinylObject.available_qty : '');
     const [imageSrc, setImageSrc] = useState(undefined);
+    const [audioSrc, setAudioSrc] = useState(undefined);
+
 
     useEffect(() => {
         if (vinylObject) {
@@ -26,7 +28,7 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
         const img = document.querySelector(".vinyl-cover-modal");
 
         const file = fileInput.files[0];
-        if (file && file.type.startsWith("image/")) {
+        if (file !== undefined && file.type.startsWith("image/")) {
             const reader = new FileReader();
             reader.onload = function(event) {
                 img.src = event.target.result;
@@ -43,7 +45,14 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
         const fileInput = document.getElementById("audio-preview-input");
 
         const file = fileInput.files[0];
-        if (file === undefined || !file.type.startsWith("audio/")) {
+        if (file !== undefined && file.type.startsWith("audio/")) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                setAudioSrc(event.target.result);
+            }
+
+            reader.readAsDataURL(file);
+        } else {
             alert("Selecione um arquivo de áudio MP3!");
         }
     }
@@ -81,6 +90,7 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
                 ...vinylObject,
                 title: title,
                 cover_filename: imageSrc !== undefined ? title + '.png' : vinylObject.cover_filename,
+                audio_filename: audioSrc !== undefined ? title + '.mpeg' : vinylObject.audio_filename,
                 price: numPrice,
                 available_qty: numAvailableQty
               };
@@ -88,15 +98,24 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
             updatedVinylObject = {
                 title: title,
                 cover_filename: imageSrc !== undefined ? title + '.png' : null,
-                audio_filename: null,
+                audio_filename: audioSrc !== undefined ? title + '.mpeg' : null,
                 price: numPrice,
                 available_qty: numAvailableQty
               };
         }
 
-        api.post('/image', {image: imageSrc, name: updatedVinylObject.title})
+        if (imageSrc !== undefined) {
+            api.post('/image', {image: imageSrc, name: updatedVinylObject.title})
             .then()
-            .catch(err => console.log("error"));
+            .catch(err => console.log(err));
+        }
+
+        if (audioSrc !== undefined) {
+            api.post('/audio', {audio: audioSrc, name: updatedVinylObject.title})
+            .then()
+            .catch(err => console.log(err));
+        }
+        
 
         saveModifications(updatedVinylObject);
 
