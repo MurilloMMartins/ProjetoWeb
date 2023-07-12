@@ -21,10 +21,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-app-rewired --openssl-legacy-provider start",
-    "build": "react-app-rewired build",
-    "test": "npx nodemon index.test.js",
-    "eject": "react-scripts eject"
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start:dev": "nodemon src/server/server.js",
+    "setup-db": "node src/server/dbsetup.js"
   },
   "eslintConfig": {
     "extends": [
