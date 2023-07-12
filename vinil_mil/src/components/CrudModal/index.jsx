@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import api from '../../config';
 
 import './CrudModal.css';
 
@@ -27,7 +28,10 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
         if (file && file.type.startsWith("image/")) {
             const reader = new FileReader();
             reader.onload = function(event) {
-            img.src = event.target.result;
+                img.src = event.target.result;
+                api.post('/image', {image: event.target.result, name: vinylObject.title})
+                    .then(console.log("done"))
+                    .catch(err => console.log("error"));
             }
 
             reader.readAsDataURL(file);

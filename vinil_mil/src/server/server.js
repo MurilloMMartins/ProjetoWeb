@@ -1,9 +1,12 @@
 const express = require('express');
 const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 app.use(cors());
+
 app.use((req, res, next) => {
     console.log(`=== NEW REQUEST ===`);
     console.log(`IP: ${req.ip}`);
@@ -22,6 +25,7 @@ connectToDatabase();
 const UserModel = require('./models/user.model');
 const VinylModel = require('./models/vinyl.model');
 const CartModel = require('./models/cart.model');
+const { dirname } = require('path');
 
 app.get('/healthcheck', (req, res) => {
     res.contentType("text/html");
@@ -190,6 +194,22 @@ app.delete('/cart/:user_id', async (req, res) => {
         res.send(error.message);
     }
 })
+
+app.post('/image', (req, res) => {
+    const rawImage = req.body.image;
+    
+    const image = rawImage.replace(/^data:image\/png;base64,/, "");
+    if (!image) return res.sendStatus(400);
+    
+    const currPath = __dirname + "/../data/placeholders/vinyl/"
+    const name = req.body.name;
+    console.log(name);
+    fs.writeFile(currPath + name + ".png", image, 'base64', function(err) {
+        console.log(err);
+    });
+
+    res.sendStatus(200);
+});
 
 const port = 8080;
 app.listen(port, () => console.log(`Running on port ${port}`));
