@@ -129,7 +129,14 @@ module.exports = {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
-    '<rootDir>/src/components/ '
+    '<rootDir>/src/pages/AllProductsPage/index.jsx',
+    '<rootDir>/src/pages/FinishOrderPage/index.jsx',
+    '<rootDir>/src/pages/HomePage/index.jsx',
+    '<rootDir>/src/pages/MenuAdminPage/index.jsx',
+    '<rootDir>/src/pages/ProfilePage/index.jsx',
+    '<rootDir>/src/pages/SearchResultsPage/index.jsx',
+    '<rootDir>/src/pages/ShoppingCartPage/index.jsx',
+    '<rootDir>/src/pages/UserAuthenticationPage/index.jsx'
   ],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
