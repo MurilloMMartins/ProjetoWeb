@@ -28,8 +28,14 @@ Sem comentários
 ## Test Plan
 Para a parte do frontend (ou funcionalidade do cliente) não foram utilizadas ferramentas de teste. Ao invés disso foram feitos testes visuais para saber se os componentes estavam sendo renderizados corretamente ou se os containers estavam se comportando da forma esperada de acordo com o uso deles na aplicação.
 
+Para a parte do backend foram realizados testes usando a ferramenta Postman para gerar requisições pré-montadas. Dessa forma, foi possível testar todas as rotas do servidor para diferentes casos. Para acessar o workspace do Postman, basta acessar o link: https://www.postman.com/blue-trinity-453070/workspace/vinil-mil/collection/16600783-da2aa0b1-376a-484b-b9ca-e51c6176a411?action=share&creator=16600783
+<br>
+No workspace encontram-se modelos para testar todos os endpoints, com request-bodies já prontos. Também é possível alterar os bodies, adicionando os dados desejados para o teste.
+
 ## Test Results
 Para a parte do frontend foram utilizados testes visuais (como dito na seção anterior), portanto não é possivel mostrar o resultado dos testes (além de ver a funcionalidade dos componentes na aplicação).
+
+Os testes do backend tiveram resultados satisfatórios, e todas as rotas estão funcionando normalmente.
 
 ## Build Procedures
 O projeto foi desenvolvido usando a biblioteca React para o Frontend e o Node.js para o Backend, para utilizar o projeto é necessário primeiro instalar o npm usando o comando:
