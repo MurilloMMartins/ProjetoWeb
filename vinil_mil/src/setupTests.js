@@ -27,7 +27,7 @@ describe('', () => {
 })
 
 describe('', () => {
-    it ('should be able to add new product to the inventory', () => {
+    it ('should be able to add new product to the inventory as an admin', () => {
         const {} = render(<App />)
 
         expect()
@@ -45,13 +45,13 @@ describe('', () => {
 describe('', () => {
     it ('should be able to login as an admin', () => {
         const {} = render(<App />)
-
+ 
         expect()
     })
 })
 
 describe('', () => {
-    it ('should be able to add products to cart', () => {
+    it ('should be able to add products to cart as a user', () => {
         const {} = render(<App />)
 
         expect()
@@ -59,7 +59,7 @@ describe('', () => {
 })
 
 describe('', () => {
-    it ('should be able to finalize an order', () => {
+    it ('should be able to finalize an order as a user', () => {
         const {} = render(<App />)
 
         expect()
