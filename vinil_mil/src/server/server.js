@@ -211,5 +211,19 @@ app.post('/image', (req, res) => {
     res.sendStatus(200);
 });
 
+app.post('/audio', (req, res) => {
+    const rawAudio = req.body.audio;
+
+    const audio = rawAudio.replace(/^data:audio\/mpeg;base64,/, "");
+    if (!audio) return res.sendStatus(400);
+    
+    const currPath = __dirname + "/../data/audio-previews/"
+    const name = req.body.name;
+    fs.writeFile(currPath + name + ".mpeg", audio, 'base64', function(err) {
+        console.log(err);
+    });
+    res.sendStatus(200);
+});
+
 const port = 8080;
 app.listen(port, () => console.log(`Running on port ${port}`));
