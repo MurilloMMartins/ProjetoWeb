@@ -7,6 +7,7 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
     const [title, setTitle] = useState(vinylObject !== undefined ? vinylObject.title : '');
     const [price, setPrice] = useState(vinylObject !== undefined ? vinylObject.price : '');
     const [availableQty, setAvailableQty] = useState(vinylObject !== undefined ? vinylObject.available_qty : '');
+    const [imageSrc, setImageSrc] = useState(undefined);
 
     useEffect(() => {
         if (vinylObject) {
@@ -29,9 +30,7 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
             const reader = new FileReader();
             reader.onload = function(event) {
                 img.src = event.target.result;
-                api.post('/image', {image: event.target.result, name: vinylObject.title})
-                    .then(console.log("done"))
-                    .catch(err => console.log("error"));
+                setImageSrc(event.target.result);
             }
 
             reader.readAsDataURL(file);
@@ -81,18 +80,24 @@ function CrudModal({ isOpen, setOpenModal, vinylObject, saveModifications }) {
             updatedVinylObject = {
                 ...vinylObject,
                 title: title,
+                cover_filename: imageSrc !== undefined ? title + '.png' : vinylObject.cover_filename,
                 price: numPrice,
                 available_qty: numAvailableQty
               };
         } else {
             updatedVinylObject = {
                 title: title,
-                cover_filename: null,
+                cover_filename: imageSrc !== undefined ? title + '.png' : null,
                 audio_filename: null,
                 price: numPrice,
                 available_qty: numAvailableQty
               };
         }
+
+        api.post('/image', {image: imageSrc, name: updatedVinylObject.title})
+            .then()
+            .catch(err => console.log("error"));
+
         saveModifications(updatedVinylObject);
 
         setOpenModal();
