@@ -32,7 +32,7 @@ Para a parte do frontend (ou funcionalidade do cliente) não foram utilizadas fe
 Para a parte do frontend foram utilizados testes visuais (como dito na seção anterior), portanto não é possivel mostrar o resultado dos testes (além de ver a funcionalidade dos componentes na aplicação).
 
 ## Build Procedures
-O projeto foi desenvolvido usando a biblioteca React, para utilizar o projeto é necessário primeiro instalar o npm usando o comando:
+O projeto foi desenvolvido usando a biblioteca React para o Frontend e o Node.js para o Backend, para utilizar o projeto é necessário primeiro instalar o npm usando o comando:
 ```
 $ sudo apt install npm
 ```
@@ -44,7 +44,11 @@ Após isso é necessário instalar as dependências da aplicação (que pode dem
 ```
 $ npm install
 ```
-A partir disso é só iniciar o projeto usando o comando:
+Depois, abra duas telas de terminal, em uma delas execute o comando:
+```
+$ npm run start:dev
+```
+Dessa forma será iniciado o Backend. Após isso (em outro terminal) execute o comando:
 ```
 $ npm start
 ```
